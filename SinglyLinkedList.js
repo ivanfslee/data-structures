@@ -48,6 +48,23 @@ class singlyLinkedList {
         }
         return current; //return popped item
     }
+
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+
+        var currentHead = this.head;
+        this.head = currentHead.next; //set new head to currentHead's next 
+        this.length--;
+
+        if (this.length === 0) { //for edge case when list is empty 
+            this.head = null;
+            this.tail = null;
+        }
+
+        return currentHead; //return old head, that was removed
+    }
 }
 
 //create singlyLinkedList obj
@@ -60,4 +77,4 @@ list.push('aloha');
 list.push('oy');
 
 //push on a new node with a value of 'poi'
-list.push('poi');
+console.log(list.push('poi'));
