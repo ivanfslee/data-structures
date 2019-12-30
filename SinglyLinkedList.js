@@ -21,11 +21,32 @@ class singlyLinkedList {
             this.head = newNode;
             this.tail = this.head;
         } else {
-            this.tail.next = newNode;
-            this.tail = newNode;
+            this.tail.next = newNode; //set the current tail's next/pointer to the new node
+            this.tail = newNode; //set the tail to be the new node 
         }
         this.length++;
         return this;
+    }
+
+    //we cannot go to tail and get second to last node that way. we have to traverse the list from the beginning in order to get to the second to last node  
+    pop() { //in order to pop off the last node - we have to traverse the list and find the second to last node 
+        if (this.length === 0) {
+            return undefined;
+        } 
+        var current = this.head;
+        var newTail = this.head;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null; //severs the connection to the previous tail 
+        this.length--;
+        if (this.length === 0) { //for edge case when list is empty - we set head and tail to null
+            this.head = null;
+            this.tail = null;
+        }
+        return current; //return popped item
     }
 }
 
