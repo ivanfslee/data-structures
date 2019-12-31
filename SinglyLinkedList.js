@@ -65,6 +65,19 @@ class singlyLinkedList {
 
         return currentHead; //return old head, that was removed
     }
+
+    unshift(val) {
+        var newNode = new Node(val);
+        if (!this.head) { //edge case - if head is null, that is, it is an empty linked list
+            this.head = newNode; //set head to newNode
+            this.tail = this.head; //set tail to be newNode 
+        } else {            
+            newNode.next = this.head; //set next of newNode to the current head
+            this.head = newNode; //set head to be new node
+        }
+        this.length++;
+        return this;
+    }
 }
 
 //create singlyLinkedList obj
