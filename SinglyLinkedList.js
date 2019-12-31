@@ -132,6 +132,31 @@ class singlyLinkedList {
         this.length++;
         return true;
     }
+
+    remove(index) {
+        if (index < 0 || index > this.length) {
+            return undefined;
+        }
+        if (index === this.length - 1) {
+            return this.pop();
+        }
+        if (index === 0) {
+            return this.shift();
+        }
+
+        //why this doesn't work?
+        // var removed = this.get(index);
+        // var prev = this.get(index - 1);
+        // prev.next = this.get(index + 1).next;
+        // this.length--;
+        // return removed;
+        
+        var prev = this.get(index - 1);
+        var removed = prev.next;
+        prev.next = removed.next;
+        this.length--;
+        return removed;
+    }
 }
 
 //create singlyLinkedList obj
