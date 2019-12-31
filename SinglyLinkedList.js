@@ -78,6 +78,38 @@ class singlyLinkedList {
         this.length++;
         return this;
     }
+
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return null; //return null or undefined
+        }
+
+        var counter = 0;
+        var current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++
+        }
+        return current;
+    }
+
+    set(index, val) {
+        // One way to do it:
+        // if (!this.get(index)) {
+        //     return false;
+        // } else {
+        //     this.get(index).val = val
+        //     return true;
+        // }
+        
+        //Alternatively:
+        var foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        } 
+        return false;
+    }
 }
 
 //create singlyLinkedList obj
