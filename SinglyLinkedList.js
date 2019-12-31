@@ -101,7 +101,7 @@ class singlyLinkedList {
         //     this.get(index).val = val
         //     return true;
         // }
-        
+
         //Alternatively:
         var foundNode = this.get(index);
         if (foundNode) {
@@ -109,6 +109,28 @@ class singlyLinkedList {
             return true;
         } 
         return false;
+    }
+
+    insert(index, val) {
+        //edge cases - insert at end or beginning or outside the bounds of linked list
+        if (index < 0 || index > this.length) {
+            return false;
+        }
+        if (index === this.length) { //if index is last node - add node to end using push
+            return !!this.push(val); //double bang coerces it to boolean value - it will push new node and return true
+        } 
+        if (index === 0) { //if index is the first node - add node to beginning using unshift
+            return !!this.unshift(val); //double bang coerces return of a boolean value - it will push new node and return true
+        }
+
+        //insert new node in the middle of the linked list
+        var newNode = new Node(val);
+        var prev = this.get(index - 1) //get node right before index and store as prev
+        var temp = prev.next; // temp is prev's current next node 
+        prev.next = newNode; // connect prev to new node
+        newNode.next = temp  // connect new node to temp (temp is prev's old next node)
+        this.length++;
+        return true;
     }
 }
 
