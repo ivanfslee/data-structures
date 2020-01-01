@@ -157,6 +157,35 @@ class singlyLinkedList {
         this.length--;
         return removed;
     }
+
+    reverse() {
+        var node = this.head;
+        this.head = this.tail; //swap head and tail 
+        this.tail = node; //tail becomes the head. node acts as temp storage of head node because this.head gets overwritten on previous line to become this.tail node 
+        
+        var next = null; //set to null or undefined - var next;
+        var prev = null; //set to null
+        for (var i = 0; i < this.length; i++) {
+            next = node.next; //node is the current node we are looking at. we set next to node's next node
+            node.next = prev; //set nodes next, which is the current node we are looking at its next (which is prev, which is null on the first iteration)
+            
+            //we move up to the next to nodes 
+            prev = node; //prev then becomes the current node
+            node = next; //current node becomes next node
+        }
+        return this;
+    }
+
+    //print method prints values of linked list in an array
+    print() {
+        var arr = [];
+        var current = this.head;
+        while (current) {
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log(arr);
+    }
 }
 
 //create singlyLinkedList obj
