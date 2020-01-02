@@ -1,4 +1,5 @@
 // Stack = LIFO |  Queue = FIFO
+// For both Stacks and Queues insertion and removal is constant time O(1)
 
 // Array implementation of a stack
 // Use push and pop to insert to the end and remove from the end
