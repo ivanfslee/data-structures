@@ -34,3 +34,24 @@
     //Every parent node has at most two children
     //Every node to the left of parent node is LESS than the parent
     //Every node to the right of parent node is MORE than the parent 
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.right = null;
+        this.left = null;
+    }
+}
+
+class BinarySearchTree {
+    constructor() {
+        this.root = null;
+    }
+}
+
+// Creating BST and manually adding nodes 
+// var tree = new BinarySearchTree();
+// tree.root = new Node(10);
+// tree.root.right = new Node(15);
+// tree.root.left = new Node(7);
+// tree.root.left.right = new Node(9);
