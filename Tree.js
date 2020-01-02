@@ -17,3 +17,20 @@
 
 // Tree vs binary tree vs binary search tree
 // We'll focus on Binary search tree
+
+//Examples of trees
+//HTML DOM
+//Network routing
+//Abstract syntax tree
+//Artificical Intelligence/Machine Learning
+//Folders in Operating System
+//JSON
+
+//Tree -> Binary Tree -> Binary Search Tree (stores sorted data in organized way)
+
+//Binary Tree - each node can have AT MOST 2 children , so 0, 1, or 2 children per node 
+
+//Binary Search Trees - a type of Binary Tree 
+    //Every parent node has at most two children
+    //Every node to the left of parent node is LESS than the parent
+    //Every node to the right of parent node is MORE than the parent 
