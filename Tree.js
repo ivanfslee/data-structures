@@ -75,13 +75,30 @@ class BinarySearchTree {
             }
         }
     }
+
+    contains(value) {
+        if (this.root === null) { //no root - return false
+            return false;
+        } 
+
+        var current = this.root;
+        var found = false;
+        while (current && !found) { //while current is not null and found is false
+            if (value < current.value) {
+                current = current.left;
+            } else if (value > current.value) {
+                current = current.right
+            } else {
+                return true; //return true if value === current.value
+            }
+        }
+        return false; //return false if current is null (false) and found is false - basically - if it exits the while loop
+    }
 }
 
 //Note: handling duplicate values in tree
 //Ask interviewer how you should handle duplicates that are inserted into tree. Ignore them? return undefined? Add a count property?
 //One possibility is to add a count property to the nodes. If node encounters a duplicate, it will just increment the counter
-
-
 
 // Creating BST and manually adding nodes 
 // var tree = new BinarySearchTree();
@@ -91,3 +108,5 @@ class BinarySearchTree {
 // tree.root.left.right = new Node(9);
 
 //Insert method can be done iteratively or recursively 
+//Find/Search method can be done iteratively or recursively
+    //Find if a certain value is in the tree
