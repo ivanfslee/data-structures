@@ -35,6 +35,12 @@
     //Every node to the left of parent node is LESS than the parent
     //Every node to the right of parent node is MORE than the parent 
 
+//Big O of BST - 
+//Best Case and Average case - (log base 2) O(log n) - n is number of nodes?
+//Worst Case - O(n) - (e.g. singly branched binary search tree) 
+//one way to deal with it and you still need it sorted as a BST would be to structure the tree and pick a different root node
+//If you dont need it as a BST - you could make it a linked list (singly or doubly)
+
 class Node {
     constructor(value) {
         this.value = value;
