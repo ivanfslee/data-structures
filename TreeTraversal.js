@@ -14,8 +14,10 @@
 
 //Our approach on BFS vs DFS depends a lot on how tree is structured (e.g. 100+ children per node) and how it branches and how the data is distributed 
 
-
-//BFS - Breadth First Search
+//DFS - Depth First Search - InOrder [3, 6, 8, 10, 15, 20]
+//DFS - Depth First Search - PostOrder [3, 8, 6, 20, 15, 10] - visit all children before the root node
+//DFS - Depth First Search - PreOrder [10, 6, 3, 8, 15, 20]
+//BFS - Breadth First Search [10, 6, 15, 3, 8, 20]
 //       10
 //     6    15
 //   3   8    20
@@ -117,11 +119,11 @@ class BinarySearchTree {
     }
 
     DFSPreOrder() {
-        var data = [];
-        
+        var data = []; //return at the very end
+
         function traverse(node) {
-            data.push(node.value);
-            if (node.left) {
+            data.push(node.value); //push before the left and right check
+            if (node.left) { 
                 traverse(node.left);
             }
             if (node.right) {
@@ -132,4 +134,54 @@ class BinarySearchTree {
         traverse(this.root);
         return data;
     }
+
+    DFSPostOrder() {
+        var data = []; //return at the very end
+
+        function traverse(node) {
+            
+            if (node.left) { 
+                traverse(node.left);
+            }
+            if (node.right) {
+                traverse(node.right);
+            }
+            data.push(node.value); //push after 
+        }
+
+        traverse(this.root);
+        return data;
+    }
+
+    DFSInOrder() {
+        var data = []; //return at the very end
+
+        function traverse(node) {
+            
+            // alternative to conditional is - node.left && traverse(node.left); - can use this in all DFS methods
+            if (node.left) { 
+                traverse(node.left);
+            }
+
+            
+            data.push(node.value); //push after left and before exploring right
+            
+            // alternative to conditional is - node.right && traverse(node.right); - can use this in all DFS methods
+            if (node.right) {
+                traverse(node.right);
+            }
+            
+        }
+
+        traverse(this.root);
+        return data;
+    }
 }
+
+var tree = new BinarySearchTree();
+tree.insert(10);
+tree.insert(6);
+tree.insert(15);
+tree.insert(3);
+tree.insert(8);
+tree.insert(20);
