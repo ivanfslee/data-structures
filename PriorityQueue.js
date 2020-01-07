@@ -93,3 +93,11 @@ ER.dequeue(); //returns min node 'gunshot wound'
 
 //currently no logic to account for nodes for same priority 
 //in reality though, there are many different parameters that will affect priority - e.g. time/date which one was earlier
+
+
+//Big O analysis of binary heaps
+//Insertion - O(log N) best case  | worst case is still O(log N) - a single branched/unbalanced tree is not possible with heaps because heaps will fill each level completely before going to next level
+//Removal - O(log N) best case    | 
+//Search - O(N) - if you want to search, you would probably use a binary search tree not a binary heap. There is no inherent order to heaps. 
+
+//Heaps are not optimized for searching (you would use a BST for that probably). But insertion/removal binary heaps are good for that. 

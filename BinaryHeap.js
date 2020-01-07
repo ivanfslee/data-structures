@@ -1,3 +1,15 @@
+//Binary heaps are a specific type of heap. Heaps are a type of tree. 
+
+//Binary Heaps are useful data structures for sorting and implementing other data structures like priority queues
+
+//Binary heaps are Max Binary Heaps or Min Binary Heaps - parents are smaller (min binary heap) or larger (max binary heap) than their children
+
+//We can represent heaps using arrays. And use math (2n + 1) (2n - 1) to access children 
+//We basically flatten out the heap into a linear array and use math formulas to access the children/parent indices
+
+//You could represent heaps with nodes like we did with binary search trees but working with arrays is easier 
+
+
 class MaxBinaryHeap {
     constructor() {
         this.values = []; //we'll initialize a valid heap with some values
