@@ -1,10 +1,11 @@
-class MaxBinaryHeap {
+class PriorityQueue {
     constructor() {
         this.values = []; //we'll initialize a valid heap with some values
     }
 
-    insert(element) { //inserts element to the end of array and bubbleUp will place element in correct spot in binary heap
-        this.values.push(element);
+    enqueue(val, priority) { //(enqueue renamed from 'insert') inserts node to the end of array and bubbleUp will place element in correct spot in binary heap
+        let newNode = new Node(val, priority);
+        this.values.push(newNode); //push newNode to values array
         this.bubbleUp();
     }
 
@@ -15,7 +16,7 @@ class MaxBinaryHeap {
         while (idx > 0) {
             let parentIdx = Math.floor((idx - 1) / 2); //parent index of idx
             let parent = this.values[parentIdx];
-            if (element <= parent) { 
+            if (element.priority >= parent.priority) { 
                 break;
             }
 
@@ -26,8 +27,8 @@ class MaxBinaryHeap {
         }
     }
 
-    extractMax() {
-        const max = this.values[0]; //get largest value in binary heap
+    dequeue() { //renamed from extractMax -> dequeue. We also need to make it a min binary heap (it was previously a max binary heap)
+        const min = this.values[0]; //get largest value in binary heap
         const end = this.values.pop(); 
         
 
@@ -37,7 +38,7 @@ class MaxBinaryHeap {
             this.sinkDown(); //helper function to trickle down the root value    
         }
         
-        return max;
+        return min;
     }
 
     sinkDown() {
@@ -52,15 +53,15 @@ class MaxBinaryHeap {
             let swap = null;
             if (leftChildIdx < length) { //leftChildIdx is in bounds of array (it is a valid index)
                 leftChild = this.values[leftChildIdx]; //leftChild is assigned value at that index
-                if (leftChild > element) {
+                if (leftChild.priority < element.priority) {
                     swap = leftChildIdx;
                 }
             }
             if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
                 if (
-                    (swap === null && rightChild > element) || 
-                    (swap !== null && rightChild > leftChild) //conditional checks that we will swap element with rightChild and not the leftChild 
+                    (swap === null && rightChild.priority < element.priority) || 
+                    (swap !== null && rightChild.priority < leftChild.priority) //conditional checks that we will swap element with rightChild and not the leftChild 
                 ) {
                     swap = rightChildIdx;
                 }
@@ -74,29 +75,21 @@ class MaxBinaryHeap {
     }
 }
 
-let heap = new MaxBinaryHeap();
-heap.insert(41);
-heap.insert(39);
-heap.insert(33);
-heap.insert(18);
-heap.insert(27);
-heap.insert(12);
-heap.insert(55);
+class Node {
+    constructor(val, priority) {
+        this.val = val;
+        this.priority = priority;
+    }
+}
 
+let ER = new PriorityQueue();
+ER.enqueue('common cold', 5);
+ER.enqueue('gunshot wound', 1);
+ER.enqueue('high fever', 4);
+ER.enqueue('broken arm', 2);
+ER.enqueue('glass in foot', 3);
 
-//remove method
-    //removes root in both max binary heap and min binary heap
-    //binary heap will then restructure because root is removed
-    //replace the root with the last value added
-    //take the new root and swap with children (swap with the larger child if both children are bigger) until that new root trickles down to its correct position in the binary heap
+ER.dequeue(); //returns min node 'gunshot wound'
 
-
-//Important application of binary heap is their use in PRIORITY QUEUES
-    //Priority queue - data structure where each element has a priority
-    //Elements with higher priorities are served before elements with lower priorities
-    //e.g. - Triage - gunshot wound has higher priority over someone with a cold 
-    //PQ are separate from heaps - they are just an abstract concept
-    //You can implement a PQ with an array or list (it wouldnt perform well, but you could do it)
-    //PQ are typically implemented using a Max/Min Heap rather then arrays because Heaps have better time complexity
-    //Highest priority is at the top (the root)
-    //insertion and removal of nodes into a PQ/Max Binary Heap has O(log N) time complexity
+//currently no logic to account for nodes for same priority 
+//in reality though, there are many different parameters that will affect priority - e.g. time/date which one was earlier
