@@ -51,3 +51,33 @@
         //1. Fast (i.e. constant time) 
         //2. Doesn't cluster outputs at specific indices, but distributes uniformly
         //3. Deterministic (same input yields same output)
+
+//
+
+// utf 16 conversion using method 'charCodeAt()'
+//'a'.charCodeAt(0);   //return 104 - find utf 16 number at index 0
+//'hi'.charCodeAt(1);  //return 105 - find utf 16 number at index 1
+
+//subtract 96 gives us the position in the alphabet
+//'a'.charCodeAt(0) - 96;    //returns 1 - 1st character in alphabet
+//'b'.charCodeAt(0) - 96;    //returns 2
+//'z'.charCodeAt(0) - 96;    //returns 26
+
+//We will add up the alphabet positions and modulo it by the length of the array we are storing the string in
+
+//Simple hash example that works on strings only
+
+function hash(key, arrayLen) { //arrayLen is length of array we are storing key-value pairs in 
+    let total = 0;
+    for (let char of key) { //loop through characters in key which is a string
+        // map 'a' to 1, 'b' to 2, 'c' to 3...
+        let value = char.charCodeAt(0) - 96;
+        total = (total + value) % arrayLen; //we mod each characther, we could mod at the very end once instead 
+    }
+    return total;
+}
+
+//problems with the hash function above
+    //1. only hashes strings (we won't address this)
+    //2. not constant time - we loop through each character
+    //3. could be a little more random 
