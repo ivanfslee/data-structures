@@ -42,3 +42,12 @@
     //Any time we pass in 'pink' to hash function, it should return same number value 
 
 //Intro to Hash Functions
+    //We will use hash function to convert keys (e.g. 'pink') to valid index in array
+
+    //input - any length
+    //output - fixed length
+
+    //What makes a good hash function? (not a cryptogrpahically secure one)
+        //1. Fast (i.e. constant time) 
+        //2. Doesn't cluster outputs at specific indices, but distributes uniformly
+        //3. Deterministic (same input yields same output)
