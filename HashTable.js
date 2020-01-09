@@ -13,8 +13,13 @@
     //Ruby - Hashes 
 
 
-//What a hash table is
+//What a hash table is - collection of key-value pairs
     //hash tables are used to store key-value pairs
+    //hash tables can find values quickly given a key
+    //hash tables can add new key-value pairs quickly
+    //hash tables store data in a large array and work by hashing the keys
+    //a good hash should be fast, distribute keys uniformly, and be deterministic
+    //separate chaining and linear probing are two strategies used to deal with two keys that hash to the same index (i.e. duplicate keys)
     //arrays are stored using key-value pairs - but the keys are numeric in arrays
     //keys in a hash table are not ordered - keys in arrays ARE
     //unlike arrays - hash tables are fast for:
@@ -144,6 +149,7 @@ class HashTable {
             for (let i = 0; i < this.keyMap[index].length; i++) { //loop through each element at the index and look for the matching key
                 let currentElem = this.keyMap[index][i]
                 //note: the way we have it now, it allows for duplicate keys. When we use get method - it returns the first array at the index
+                //note2: though for most languages, if you add in a key-value pair where the key is a duplicate, it would overwrite the original key value pair
                 if (currentElem[0] === key) { //if currentElem's key matches the key
                     return currentElem[1]; //return value 
                 }
@@ -202,3 +208,13 @@ class HashTable {
 //How do we handle duplicate values?
     //keys are supposed to be unique
     //duplicate values are possible 
+
+
+//Big O of Hash Tables 
+//Average Case and Best Case 
+    //Insert - O(1)
+    //Deletion - O(1)
+    //Access - O(1)
+    //Search - can be O(1)
+    //Speed is determined by how fast the hash function is and how evenly it distributes into the array 
+    //It is possible to have O(1) hash function and programming langues hash tables have a constant time hash function 
