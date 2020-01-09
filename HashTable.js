@@ -143,12 +143,39 @@ class HashTable {
         if (this.keyMap[index]) { //if there is something at this index
             for (let i = 0; i < this.keyMap[index].length; i++) { //loop through each element at the index and look for the matching key
                 let currentElem = this.keyMap[index][i]
+                //note: the way we have it now, it allows for duplicate keys. When we use get method - it returns the first array at the index
                 if (currentElem[0] === key) { //if currentElem's key matches the key
                     return currentElem[1]; //return value 
                 }
             }
         }
         return undefined; //if nothing at the index, return undefined 
+    }
+
+    values() {
+        let valuesArr = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    if (!valuesArr.includes(this.keyMap[i][j][1])) { //dealing with duplicate values. if valuesArr doesn't contain value, push the value into it
+                        valuesArr.push(this.keyMap[i][j][1]); //here we only push the unique values into our array. Any duplicates are skipped
+                    }                    
+                }                
+            }
+        }
+    }
+
+    keys() {
+        let keysArr = [];
+        for (let i = 0; i < this.keyMap.length; i++) {
+            if (this.keyMap[i]) {
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    if (!keysArr.includes(this.keyMap[i][j][0])) { //dealing with duplicate keys. if keysArr doesn't contain key, push the value into it
+                        keysArr.push(this.keyMap[i][j][0]); //here we only push the unique keys into our array. Any duplicates are skipped
+                    }                    
+                }                
+            }
+        }
     }
 
 }
@@ -167,4 +194,11 @@ class HashTable {
 
 //Keys and Values Methods
     //Keys
-        //1. 
+        //1. loop through hash table array and return an array containing all keys 
+
+    //Values
+        //1. loops through hash table array and return an array containing all values
+
+//How do we handle duplicate values?
+    //keys are supposed to be unique
+    //duplicate values are possible 
