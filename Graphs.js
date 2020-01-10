@@ -84,6 +84,19 @@ class Graph {
         this.adjacencyList[vertex1].push(vertex2);
         this.adjacencyList[vertex2].push(vertex1); //to make a directed graph, you wouldn't include this line of code 
     }
+
+    removeEdge(vertex1, vertex2) {
+        //in vertex1 you have to remove vertex2
+        //in vertex2 you have to remove vertex1
+        //we use filter to replace existing array with new array without vertex1/vertex2
+        
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+            v => v !== vertex2
+        );
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+            v => v !== vertex1
+        );
+    }
 }
 
 //addVertex demo
@@ -111,3 +124,19 @@ class Graph {
         // }
 
 
+//removing an edge
+    //adjacencyList start
+        // { 
+        //     'Tokyo': ['Dallas'],
+        //     'Dallas': ['Tokyo', 'Aspen'],
+        //     'Aspen': ['Dallas']
+        // }
+    
+    //g.removeEdge('Tokyo', 'Dallas');
+
+    //adjacencyList end
+        // { 
+        //     'Tokyo': [],
+        //     'Dallas': ['Aspen'],
+        //     'Aspen': ['Dallas']
+        // }
