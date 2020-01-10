@@ -89,7 +89,7 @@ class Graph {
         //in vertex1 you have to remove vertex2
         //in vertex2 you have to remove vertex1
         //we use filter to replace existing array with new array without vertex1/vertex2
-        
+
         this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
             v => v !== vertex2
         );
@@ -140,3 +140,24 @@ class Graph {
         //     'Dallas': ['Aspen'],
         //     'Aspen': ['Dallas']
         // }
+
+//removing a vertex 
+    //adjacencyList start
+        // {
+        //     'Tokyo': ['Dallas', 'Hong Kong'],
+        //     'Dallas': ['Tokyo', 'Aspen', 'Hong Kong', 'Los Angeles'],
+        //     'Aspen': ['Dallas'],
+        //     'Hong Kong': ['Tokyo', 'Dallas', 'Los Angeles'],
+        //     'Los Angeles': ['Hong Kong', 'Dallas']
+        // }
+
+    //g.removeVertex('Hong Kong');
+
+    //adjacencyList end
+        // {
+        //     'Tokyo': ['Dallas'],
+        //     'Dallas': ['Tokyo', 'Aspen', 'Los Angeles'],
+        //     'Aspen': ['Dallas'],
+        //     'Los Angeles': ['Dallas']
+        // }
+
