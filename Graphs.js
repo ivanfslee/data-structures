@@ -39,5 +39,27 @@
 
 
 //Most common way of implementing graphs 
-    //1. Adjacency matrix
-    //2. Adjacency list 
+    //1. Adjacency matrix - stores 0s and 1s - matrix with nodes as column header and row header. values are 0 or 1 to indicate presence or abscence of an edge between the two nodes 
+    //2. Adjacency list - just store the edges - obj or list that uses index or key to note the nodes it shares an edge to. The value is an array that has the nodes the key is connected to. {a: ['b', 'c']} -> Node a is connected to node b and node c 
+
+//Matrix - two dimensional usually (not always) implemented with nested arrays 
+
+
+//Big O - Adjacency Matrix and Adjacency Lists
+//If your data is sparse - if you don't have alot of connections/edges, probably don't use a matrix. 
+//Adjacency Matrices use up more space because it is a 2 dimensional data structure
+
+//Adjacency List vs Adjacency Matrix
+    //Adjacency List
+        //Pro - Can take up less space (in sparse graphs)
+        //Pro - Fast to iterate over all edges - because Adjacency List only stores edges 
+        //Con - Can be slower to lookup specific edge - because you have to iterate through entire list of a node to see if a specific edge exists
+    
+    //Adjacency Matrix
+        //Con - Takes up more space (in sparse graphs)
+        //Con - Slower to iterate over all edges - because iterate over things that are not edges (0s) and edges (1s)
+        //Pro - Faster to lookup specific edge (i.e. Query an edge) - you just look up on the table if the edge exists
+
+//We will implement ADJACENCY LIST 
+//Real world data lends itself to Adjacency Lists moreso than Adjacency Matrices 
+    //That is to say - more nodes, less connections 
