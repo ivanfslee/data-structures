@@ -67,6 +67,47 @@
 //We are building an undirected graph
 class Graph {
     constructor() {
-        this.adjacencyList = {}
+        this.adjacencyList = {};
+    }
+
+    addVertex(vertex) {
+        //no error handling - this code will overwrite vertices already in adjacency list
+        // this.adjacencyList[vertex] = [];
+
+        //with basic error handling
+        if (!this.adjacencyList[vertex]) { //if vertex is not in adjacency list, add it and add it with a value of an empty array
+            this.adjacencyList[vertex] = [];  //therefore, this won't overwrite vertices already in the adjacency list
+        }
+    }
+
+    addEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1].push(vertex2);
+        this.adjacencyList[vertex2].push(vertex1); //to make a directed graph, you wouldn't include this line of code 
     }
 }
+
+//addVertex demo
+    //g - our adjacency list
+    //g.addVertex('Tokyo');
+    // {
+    //     'Tokyo': []
+    // }
+
+//addEdge demo
+    //adjacencyList start
+        // { 
+        //     'Tokyo': [],
+        //     'Dallas': [],
+        //     'Aspen': []
+        // }
+
+    // g.addEdge('Tokyo', 'Dallas') 
+
+    //adjacencyList end
+        // { 
+        //     'Tokyo': ['Dallas'],
+        //     'Dallas': ['Tokyo'],
+        //     'Aspen': []
+        // }
+
+
