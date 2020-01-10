@@ -63,3 +63,10 @@
 //We will implement ADJACENCY LIST 
 //Real world data lends itself to Adjacency Lists moreso than Adjacency Matrices 
     //That is to say - more nodes, less connections 
+
+//We are building an undirected graph
+class Graph {
+    constructor() {
+        this.adjacencyList = {}
+    }
+}
