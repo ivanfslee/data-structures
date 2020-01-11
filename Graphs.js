@@ -97,7 +97,28 @@ class Graph {
             v => v !== vertex1
         );
     }
+
+    removeVertex(vertex) {
+        while(this.adjacencyList[vertex].length) { //could use a for loop instead
+            const adjacentVertex = this.adjacencyList[vertex].pop(); //pop removes the last vertex and store in variable 'adjacentVertex'
+            this.removeEdge(vertex, adjacentVertex); //pass vertex and adjacentVertex into removeEdge() method            
+        }
+        delete this.adjacencyList[vertex]; //removes vertex key from adjacencyList
+    }
 }
+
+let g = new Graph();
+g.addVertex('Dallas');
+g.addVertex('Tokyo');
+g.addVertex('Aspen');
+g.addVertex('Los Angeles');
+g.addVertex('Hong Kong');
+g.addEdge('Dallas', 'Tokyo');
+g.addEdge('Dallas', 'Aspen');
+g.addEdge('Hong Kong', 'Tokyo');
+g.addEdge('Hong Kong', 'Dallas');
+g.addEdge('Los Angeles', 'Hong Kong');
+g.addEdge('Los Angeles', 'Aspen');
 
 //addVertex demo
     //g - our adjacency list
