@@ -105,6 +105,25 @@ class Graph {
         }
         delete this.adjacencyList[vertex]; //removes vertex key from adjacencyList
     }
+
+    depthFirstRecursive(start) {
+        const result = [];
+        const visited = {};
+        const adjacencyList = this.adjacencyList;
+
+        (function dfs(vertex) {
+            if (!vertex) return null;
+            visited[vertex] = true;
+            result.push(vertex);
+            adjacencyList[vertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    return dfs(neighbor); //recursive call
+                }
+            });
+        })(start);
+
+        return result;
+    }
 }
 
 let g = new Graph();
