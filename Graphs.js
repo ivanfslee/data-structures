@@ -126,20 +126,21 @@ class Graph {
     }
 
     depthFirstIterative(start) {
-        const stack = [start];
-        const result = [];
-        const visited = {};
+        const stack = [start]; //starting vertex placed into stack. stack will kep track of vertices
+        const result = []; //stores end result. will be returned at the end 
+        const visited = {}; //obj stores visited vertices
         let currentVertex;
 
-        visited[start] = true;
-        while (stack.length) {
-            currentVertex = stack.pop();
-            result.push(currentVertex);
+        visited[start] = true; //add starting vertex to visited obj 
+        while (stack.length) { //while there is something in our stack
+            currentVertex = stack.pop(); //pop off vertex from stack and store as currentVertex
+            result.push(currentVertex); //push currentVertex to end result array
 
+            //this.adjacencyList[currentVertex] gives us an array of all neighbors of currentVertex
             this.adjacencyList[currentVertex].forEach(neighbor => {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    stack.push(neighbor);
+                if (!visited[neighbor]) { //if neighbor hasn't been visited
+                    visited[neighbor] = true; //add neighbor to visited obj 
+                    stack.push(neighbor); //push neighbor to stack
                 }
             });
         }
