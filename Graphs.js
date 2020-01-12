@@ -124,6 +124,27 @@ class Graph {
 
         return result; //will return order of vertices traversed 
     }
+
+    depthFirstIterative(start) {
+        const stack = [start];
+        const result = [];
+        const visited = {};
+        let currentVertex;
+
+        visited[start] = true;
+        while (stack.length) {
+            currentVertex = stack.pop();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    stack.push(neighbor);
+                }
+            });
+        }
+        return result;
+    }
 }
 
 let g = new Graph();
@@ -235,3 +256,5 @@ g.addEdge('E', 'F');
     //dfs - basically starts at a given vertex. Then goes to neighbor of vertex, then goes to neighbor of that vertex, then goes to neighbor of that vertex...
     //it keeps visiting neighbors until it reaches an end point where it has visited all neighors of a certain vertex
     //it will go back to a previous vertex and visits a different neighbor than the one that it visited
+
+//dfs-iterative
