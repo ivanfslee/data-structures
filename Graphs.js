@@ -107,37 +107,67 @@ class Graph {
     }
 
     depthFirstRecursive(start) {
-        const result = [];
-        const visited = {};
+        const result = []; //list that will be returned at the end
+        const visited = {}; //obj stores visited vertices
         const adjacencyList = this.adjacencyList;
 
-        (function dfs(vertex) {
-            if (!vertex) return null;
-            visited[vertex] = true;
-            result.push(vertex);
-            adjacencyList[vertex].forEach(neighbor => {
-                if (!visited[neighbor]) {
-                    return dfs(neighbor); //recursive call
+        (function dfs(vertex) { 
+            if (!vertex) return null; //if no vertex - return null. This is our base case. When we reach the end of a traversal and there is no vertex
+            visited[vertex] = true; //pass the vertex into visited obj
+            result.push(vertex); //push vertex into result array
+            adjacencyList[vertex].forEach(neighbor => { //loop over each value for that vertex in adjacencyList 
+                if (!visited[neighbor]) { //if neighbor is not in visited obj 
+                    return dfs(neighbor); //then do the recursive call on the neighbor
                 }
             });
-        })(start);
+        })(start); //iife - immediately invoked with start as the vertex
 
-        return result;
+        return result; //will return order of vertices traversed 
     }
 }
 
 let g = new Graph();
-g.addVertex('Dallas');
-g.addVertex('Tokyo');
-g.addVertex('Aspen');
-g.addVertex('Los Angeles');
-g.addVertex('Hong Kong');
-g.addEdge('Dallas', 'Tokyo');
-g.addEdge('Dallas', 'Aspen');
-g.addEdge('Hong Kong', 'Tokyo');
-g.addEdge('Hong Kong', 'Dallas');
-g.addEdge('Los Angeles', 'Hong Kong');
-g.addEdge('Los Angeles', 'Aspen');
+
+//City Graph
+// g.addVertex('Dallas');
+// g.addVertex('Tokyo');
+// g.addVertex('Aspen');
+// g.addVertex('Los Angeles');
+// g.addVertex('Hong Kong');
+// g.addEdge('Dallas', 'Tokyo');
+// g.addEdge('Dallas', 'Aspen');
+// g.addEdge('Hong Kong', 'Tokyo');
+// g.addEdge('Hong Kong', 'Dallas');
+// g.addEdge('Los Angeles', 'Hong Kong');
+// g.addEdge('Los Angeles', 'Aspen');
+
+//Letter Graph
+g.addVertex('A');
+g.addVertex('B');
+g.addVertex('C');
+g.addVertex('D');
+g.addVertex('E');
+g.addVertex('F');
+
+g.addEdge('A', 'B');
+g.addEdge('A', 'C');
+g.addEdge('B', 'D');
+g.addEdge('C', 'E');
+g.addEdge('D', 'E');
+g.addEdge('D', 'F');
+g.addEdge('E', 'F');
+
+//Graph Diagram
+    //    A
+    //  /   \ 
+    // B     C
+    // |     |
+    // D --- E
+    //  \   /
+    //    F
+
+
+
 
 //addVertex demo
     //g - our adjacency list
@@ -201,3 +231,7 @@ g.addEdge('Los Angeles', 'Aspen');
         //     'Los Angeles': ['Dallas']
         // }
 
+//dfsRecursive
+    //dfs - basically starts at a given vertex. Then goes to neighbor of vertex, then goes to neighbor of that vertex, then goes to neighbor of that vertex...
+    //it keeps visiting neighbors until it reaches an end point where it has visited all neighors of a certain vertex
+    //it will go back to a previous vertex and visits a different neighbor than the one that it visited
