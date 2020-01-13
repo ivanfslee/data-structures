@@ -146,6 +146,27 @@ class Graph {
         }
         return result;
     }
+
+    breadthFirst(start) {
+        const queue = [start];
+        const result = [];
+        const visited = {};
+        let currentVertex;
+
+        visited[start] = true;
+        while (queue.length) {
+            currentVertex = queue.shift();
+            result.push(currentVertex);
+
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.push(neighbor);
+                }
+            })
+        }
+        return result;
+    }
 }
 
 let g = new Graph();
@@ -259,3 +280,10 @@ g.addEdge('E', 'F');
     //it will go back to a previous vertex and visits a different neighbor than the one that it visited
 
 //dfs-iterative
+    //utilizes a stack (implemented as an array) - first in, last out
+    //stack -> uses push and pop
+
+//bfs
+    //visiting all direct neighbors of a vertex first before visiting a neighbor's neighbor
+    //utilizes a queue (implemented as an array) - first in, first out
+    //queue -> uses push and shift 
