@@ -153,11 +153,12 @@ class Graph {
         const visited = {}; 
         let currentVertex;
 
-        visited[start] = true;
+        visited[start] = true; //mark start vertex as visited by putting it into visited obj
         while (queue.length) { 
             currentVertex = queue.shift(); //instead of pop, we use shift - removes vertex from beginning of queue array
             result.push(currentVertex); //put first vertex into result 
 
+            //loop backwards this.adjacencyList[currentVertex].slice().reverse().forEach....
             //get array of currentVertex's neighbors - run forEach on each neighbor
             this.adjacencyList[currentVertex].forEach(neighbor => {  
                 if (!visited[neighbor]) { //if neighbor is not visited
