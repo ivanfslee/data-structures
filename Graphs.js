@@ -148,20 +148,21 @@ class Graph {
     }
 
     breadthFirst(start) {
-        const queue = [start];
+        const queue = [start]; //add start vertex to queue
         const result = [];
-        const visited = {};
+        const visited = {}; 
         let currentVertex;
 
         visited[start] = true;
-        while (queue.length) {
-            currentVertex = queue.shift();
-            result.push(currentVertex);
+        while (queue.length) { 
+            currentVertex = queue.shift(); //instead of pop, we use shift - removes vertex from beginning of queue array
+            result.push(currentVertex); //put first vertex into result 
 
-            this.adjacencyList[currentVertex].forEach(neighbor => {
-                if (!visited[neighbor]) {
-                    visited[neighbor] = true;
-                    queue.push(neighbor);
+            //get array of currentVertex's neighbors - run forEach on each neighbor
+            this.adjacencyList[currentVertex].forEach(neighbor => {  
+                if (!visited[neighbor]) { //if neighbor is not visited
+                    visited[neighbor] = true; //put neighbor into visited obj
+                    queue.push(neighbor); //push neighbor into queue 
                 }
             })
         }
