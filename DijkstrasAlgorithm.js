@@ -119,11 +119,6 @@ class WeightedGraph {
     }
 }
 
-
-
-
-
-
 var graph = new WeightedGraph();
 graph.addVertex('A');
 graph.addVertex('B');
