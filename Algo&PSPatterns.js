@@ -36,3 +36,26 @@
         //Progress to more complex examples
         //Explore examples with EMPTY inputs
         //Explore examples with INVALID inputs
+
+//Step 3 - Break it down 
+    //Take the actual steps of the problem and write them down
+    //Inform the interviewer, your gameplan 
+    //Not necessarily pseudocode
+    //Broad strokes of your strategy 
+    //Explicitly write out the steps you need to take. 
+        //This forces you to think about the code you will write before you write it
+        //This also helps catch any lingering conceptual isses or misunderstandings before you dive in and worry about details
+
+//Step 4 - Solve/Simplify 
+    //If you can't solve the problem, solve a simpler problem/solve simpler part of the problem
+    //Solving the simpler part may help you gain insight into the harder parts of the problem
+    //Don't just get hung up and spend all your time on the harder part, if there are other parts you could be solving 
+
+    //Simplify
+        //Find the core difficulty in what you are trying to do
+        //Temporarily ignore that difficulty
+        //Write a simplified solution
+        //Then incorporate that difficulty back in
+
+//Step 5 - Look back and refactor
+    //Efficiency and legibility and maintainability 
