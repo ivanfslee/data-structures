@@ -31,5 +31,8 @@
     //5. How should I label the important pieces of data that are a part of the problem?
 
 //Step 2 - Explore concrete examples 
-    //Write simple examples - input and output 
-    //
+    //Write simple examples -their input and their corresponding output 
+        //Start with simple examples
+        //Progress to more complex examples
+        //Explore examples with EMPTY inputs
+        //Explore examples with INVALID inputs
