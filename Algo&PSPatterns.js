@@ -17,8 +17,19 @@
     // Step 4 - Solve/simplify
     // Step 5 - Look back and refactor 
 
-
 //Compare and contrast problem solving patterns 
     //frequency counters
     //two pointer problems
     //divide and conquer
+
+//Step 1 - Understand the problem
+    //1. Can i restate the problem in my own words
+    //2. What are the inputs that go into problem?
+    //3. What are the outputs that should come from the solution to the problem?
+    //4. Can the outputs be determined from the inputs? IOW, do I have enough information to solve the problem?
+        //You may not be able to answer #4 until you set about solving the problem. Still, the question is worth thinking about at this early stage
+    //5. How should I label the important pieces of data that are a part of the problem?
+
+//Step 2 - Explore concrete examples 
+    //Write simple examples - input and output 
+    //
