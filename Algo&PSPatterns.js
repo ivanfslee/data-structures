@@ -59,3 +59,11 @@
 
 //Step 5 - Look back and refactor
     //Efficiency and legibility and maintainability 
+    //Refactoring Questions - ask them outloud 
+        //Can you check the result?
+        //Can you derive the result differently?
+        //Can you understand it at a glance?
+        //Can you use the result or method for some other problem?
+        //Can you improve the performance of your solution?
+        //Can you think of other ways to refactor? style guide and conventions
+        //How have other people solved this problem? ask interviewer of different approaches that I may have missed 
