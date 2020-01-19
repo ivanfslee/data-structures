@@ -10,6 +10,9 @@
             //sometimes a cleaner implementation versus an iteration implmentation
         
     //Understand two essential components of a recursive function
+        //1. base case
+        //2. different input
+
 
     //Visualize the call stack to better debug and understand recursive functions
 
@@ -24,3 +27,13 @@
     //The Javascript Call Stack (Stack data structure)
         //Any time function is invoked, it is placed (pushed)
         //on top of the call stack
+        //When javascript sees the return keyword or when the function ends
+        // the compiler will remove (pop) it from call stack
+    
+    //With recursive functions
+    //we keep pushing a the same function call (with a different input) 
+    //onto the call stack until we reach the base case
+
+//The base case
+    //Most important concept to understand 
+    //base case = THE CONDITION WHEN THE RECURSION ENDS 
