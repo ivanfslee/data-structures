@@ -76,5 +76,50 @@ function factorialRecursive(num) {
 
 
 //Design Pattern
-    //Helper Method Recursion 
-    
+    //Helper Method Recursion Pattern 
+        //Recursive function inside of another function 
+
+function collectOddValues(arr) {
+    let result = [];
+
+    function helper(helperInput) { //helper method recursive function
+        if (helperInput.length === 0) { //base case
+            return;
+        }
+
+        if (helperInput[0] % 2 !== 0) { //if first element is odd
+            result.push(helperInput[0]);  //push first element into result
+        }
+
+        helper(helperInput.slice(1)); //recursive function call with different input - create array starting from second element and call helper function again
+    }
+
+    helper(arr); //recursive function call 
+
+    return result;
+}
+
+//Pure Recursion Alternative
+
+function collectOddValuesPure(arr) {
+    let newArr = [];
+
+    if (arr.length === 0) {
+        return newArr;
+    }
+
+    if (arr[0] % 2 !== 0) {
+        newArr.push(arr[0]);
+    }
+
+    newArr = newArr.concat(collectOddValuesPure(arr.slice(1)));
+    return newArr;
+}
+
+//collecctOddValuesPure([1,2,3,4,5]);
+//[1].concat(collecctOddValuesPure([2,3,4,5]))
+                    //[].concat(collecctOddValuesPure([3,4,5]))
+                                        //[3].concat(collecctOddValuesPure([4,5]))
+                                                            //[].concat(collecctOddValuesPure([5]))
+                                                                            //[5].concat(collecctOddValuesPure([]))  
+                                                                                                //[]  - reaches base base
