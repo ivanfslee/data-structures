@@ -13,7 +13,6 @@
         //1. base case
         //2. different input
 
-
     //Visualize the call stack to better debug and understand recursive functions
 
     //Use helper method recursion and pure recursion to solve more difficult problems 
@@ -37,3 +36,17 @@
 //The base case
     //Most important concept to understand 
     //base case = THE CONDITION WHEN THE RECURSION ENDS 
+
+
+//Recursion Example 1 
+
+function sumRange(num) {
+    if (num === 1) return 1; //base case
+    return num + sumRange(num - 1); //recursive call with different input
+}
+
+//sumRange(3);
+    //return 3 + sumRange(2);  //sumRange(3) returns 3 plus whatever sumRange(2) is
+                    //return 2 + sumRange(1);  // 2 plus
+                                    //return 1;
+//outputs 6
