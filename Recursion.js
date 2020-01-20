@@ -39,7 +39,6 @@
 
 
 //Recursion Example 1 
-
 function sumRange(num) {
     if (num === 1) return 1; //base case
     return num + sumRange(num - 1); //recursive call with different input
@@ -50,3 +49,32 @@ function sumRange(num) {
                     //return 2 + sumRange(1);  // 2 plus
                                     //return 1;
 //outputs 6
+
+
+//Recursion Example 2 - Factorial
+
+//factorial iteration version
+function factorialIterative(num) {
+    let total = 1;
+    for (let i = num; i > 1; i--) {
+        total *= i;
+    }
+    return total;
+}
+
+//factorial using recursion 
+function factorialRecursive(num) {
+    if (num === 1) return 1; 
+    return num * factorialRecursive(num - 1);
+}
+
+
+//Common Recursion Pitfalls 
+    //No base case -> Maximum call stack size exceeded
+    //Forgetting to return or returning the wrong thing
+    //Both these pitfalls -> Leads to stack overflow 
+
+
+//Design Pattern
+    //Helper Method Recursion 
+    
