@@ -91,7 +91,7 @@ function collectOddValues(arr) {
             result.push(helperInput[0]);  //push first element into result
         }
 
-        helper(helperInput.slice(1)); //recursive function call with different input - create array starting from second element and call helper function again
+        helper(helperInput.slice(1)); //recursive function call with different input - create copy of array starting from second element and call helper function again
     }
 
     helper(arr); //recursive function call 
@@ -123,3 +123,12 @@ function collectOddValuesPure(arr) {
                                                             //[].concat(collecctOddValuesPure([5]))
                                                                             //[5].concat(collecctOddValuesPure([]))  
                                                                                                 //[]  - reaches base base
+//Pure Recursion Tips 
+    //For arrays, use methods like slice, the spread operator, and concat 
+    //these methods make copies of arrays so we don't mutate them 
+    
+    //For strings, they are immutable, so you need to use methods
+    // slice, substr, or substring to make copies of strings
+
+    //For objects - make copies
+    //using Object.assign , or the spread operator 
