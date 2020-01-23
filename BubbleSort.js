@@ -36,6 +36,30 @@
     //every element in the array is converted to a string
     //then unicode value of that is taken and then they're sorted
 
+//Telling JavaScript How to Sort
+    //JavaScript's built-in sort method accepts optional comparator function
+    //You can use the comparator to tell JavaScript how you want it sort
+    //The comparator looks at pairs of elements (a and b) and determines their sort order
+    //based on the return value 
+        //negative return value - 'a' should come before 'b'
+        //zero return value - 'a' and 'b' order should remain unchanged
+        //positive return value - 'a' should come after 'b'
+
+//sorting by number
+function numberCompare(num1, num2) {
+    return num1 - num2;
+}
+
+[6, 4, 15, 10].sort(numberCompare);
+//returns [4, 6, 10, 15]
+
+//sorting by string length
+function compareByLen(str1, str2) {
+    return str1.length - str2.length;
+}
+
+['Steele', 'Colt', 'Data Structures', 'Algorithms'].sort(compareByLen);
+//returns ['Colt', 'Steele', 'Algorithms', 'Data Structures']
 
 
 //Elementary Sorting Algorithms 
@@ -44,3 +68,25 @@
     //selection sort
     //insertion sort 
 
+
+
+//Bubble Sort
+    //Not that commonly used
+    //Not all that efficient
+    //Only excels in one particular use-case
+    //The largest values 'bubble' to the top
+    //After each pass through, at least one single large value will be cemented towards the right side 
+    //aka - one elem will be sorted after each pass through 
+
+//Bubble Sort depends on a 'swap'
+//ES5 'swapping'
+function swap(arr, idx1, idx2) {
+    var temp = arr[idx1];
+    arr[idx1] = arr[idx2];
+    arr[idx2] = temp;
+}
+
+//ES2015 'swapping'
+const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]; //take what is at idx1, swap with idx2, take what is at idx2 and swap with what is at idx1
+}
