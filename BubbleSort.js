@@ -90,3 +90,37 @@ function swap(arr, idx1, idx2) {
 const swap = (arr, idx1, idx2) => {
     [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]; //take what is at idx1, swap with idx2, take what is at idx2 and swap with what is at idx1
 }
+
+//Unoptimized bubbleSort implementation 
+//this implementation makes too many uncessary comparisons 
+function bubbleSort(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+            console.log(arr, arr[j], arr[j + 1]);
+            if (arr[j] > arr[j + 1]) { //if array at j is greater than the element in front of it, swap them 
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+bubbleSort([37, 45, 29, 8]);
+
+//This implementation decreases the amount of comparisons by 1 after each iteration through the array
+function bubbleSort(arr) {
+    for (var i = arr.length; i > 0; i--) { //loops in a descending fashion 
+        for (var j = 0; j < i - 1; j++) { //loops to one less than whatever i is 
+            console.log(arr, arr[j], arr[j + 1]);
+            if (arr[j] > arr[j + 1]) { //if array at j is greater than the element in front of it, swap them 
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+        console.log('One Pass Complete~')
+    }
+    return arr;
+}
