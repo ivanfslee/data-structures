@@ -71,6 +71,9 @@ function compareByLen(str1, str2) {
 
 
 //Bubble Sort
+    //Big O - O(N^2) time 
+    //Best Case with a nearly sorted array is O(N) linear time 
+
     //Not that commonly used
     //Not all that efficient
     //Only excels in one particular use-case
@@ -124,3 +127,29 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+
+//A classic optimization to bubble sort 
+//On nearly sorted arrays, we can add a condition
+//If there were no swaps in the last iteration through the array
+//then the array is sorted 
+function bubbleSortNoSwaps(arr) {
+    var noSwaps;
+    for (var i = arr.length; i > 0; i--) { //loops in a descending fashion 
+        noSwaps = true;
+        for (var j = 0; j < i - 1; j++) { //loops to one less than whatever i is 
+            console.log(arr, arr[j], arr[j + 1]);
+            if (arr[j] > arr[j + 1]) { //if array at j is greater than the element in front of it, swap them 
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                noSwaps = false;
+            }
+        }
+        if (noSwaps) break;
+        console.log('One Pass Complete~')
+    }
+    return arr;
+}
+
+//We pass in a nearly sorted array
+bubbleSortNoSwaps([8,1,2,3,4,5,6,7])
