@@ -26,6 +26,44 @@
     //should not mutate arrays passed to it 
     //Big O of O(N + M) means we will visit each element in each array once 
 
+//Time Complexity (best) 
+//O(N log N)
+
+//Time Complexity (average)
+//O(N log N)
+
+//Time Complexity (worst)
+//O(N log N)
+
+//Space Complexity
+//O(N)
+
+//Where does O(N log N) come from?
+    //log N comes from:
+        // As array to be sorted grows, the number of splits grows at a rate of log N
+        //O(log N) decompositions 
+
+    //Where does the constant N (multiplied by log N) come from?
+        //O(N) comparisons per decomposition (decomposition is the splitting of the arrays)
+        //Recall that the merge function has an O(N + M) time complexity
+        //So if we analyze the Big O of the mergeSort function, as input array grows,
+        //the merge function call in the mergeSort function will increase proportionally with the size of the input array passed into mergeSort function 
+    
+//FOR EACH DECOMPOSITION (SPLITTING OF THE ARRAY) WE COMPARE EACH ELEMENT 
+//So for example if we have 3 decompositions 
+//And array has 8 elements, n = 8 , so there will be 24 (8 * 3) comparisons 
+//(8 * log 8) = 8 * 3 = 24 comparisons 
+
+
+//Big O - O(N) - Space complexity
+    //As input array gets larger, the algorithm uses more space in memory to store all the array splits and recursive function calls
+
+
+//O(N log N) is theoretical fastest for a sorting algorithm acting on agnostic data 
+//UNLESS, there is a particular quirk in the data - 
+//e.g. radix sort can be faster than O(N log N), but the data has to be a certain way
+//e.g. bubble sort can be O(N) for nearly sorted data
+
 
 //arr1 and arr2 must be sorted arrays 
 function merge(arr1, arr2) {
@@ -66,9 +104,13 @@ merge([1, 10, 50], [2, 14, 99, 100])
         //until you are back at the full length of the array
 
 function mergeSort(arr) {
-    if (arr.length <= 1) return arr;
+    if (arr.length <= 1) return arr; //base case
     let mid = Math.floor(arr.length / 2);
-    let left = mergeSort(arr.slice(0, mid));
+
+    //call mergeSort on left and right arrays 
+    let left = mergeSort(arr.slice(0, mid)); //slice doesn't include second argument (exclusive)
     let right = mergeSort(arr.slice(mid));
     return merge(left, right);
 }
+
+mergeSort([10, 24, 76, 73, 72, 1, 9])
