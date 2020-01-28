@@ -1,3 +1,16 @@
+//Big O - Quicksort
+    //Time Complexity (Best)
+    //O(N log N)
+
+    //Time Complexity (Average)
+    //O(N log N)
+
+    //Time Complexity (Worst)
+    //O(N^2)
+
+    //Space Complexity
+    //O(log n)
+
 //Operates similarly to MergeSort
 //Easiest to solve thorugh recursion
 //Where we keep splitting up the array
