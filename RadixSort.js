@@ -39,3 +39,12 @@
         //O(nk)
     //Space Complexity 
         //O(n + k)
+    
+//Radix Sort Helper FUnctions 
+    //getDigit(num, place) - returns the digit in num at the given place value
+    //getDigit(12345, 0); //5
+    //getDigit(12345, 1); //4
+    //getDigit(12345, 2); //3
+
+    //Convert number to a string, then use correct index to access number you want and then convert back to a number
+     
