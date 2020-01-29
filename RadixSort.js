@@ -91,3 +91,32 @@ function mostDigits(nums) {
     }
     return highestDigits;
 }
+
+// Radix Sort Pseudocode 
+    //The number of times we loop is based on 
+    //the number with the most digits in the array we are sorting
+
+    //Define a function that accepts list of numbers
+    //figure out how many digits the largest number has
+    //Loop from k = 0 up to the largest number of digits
+    //For each iteration of the loop:
+        //Create buckets for each digit (0 to 9)
+        //note: a bucket is just an empty array
+        //Place each number in the corresponding bucket based on its kth digit
+    //Replace our existing array with values in our buckets, starting with 0 and going up to 9
+    //Return list at the end
+
+function radixSort(nums) {
+    let maxDigitCount = mostDigits(nums); //get highest digits - we will use this value to determine how many times we loop
+    for (let k = 0; k < maxDigitCount; k++) {
+        let digitBuckets = Array.from({length: 10}, () => []);
+        for (let i = 0; i < nums.length; i++) {
+            let digit = getDigit(nums[i], k);
+            digitBuckets[digit].push(nums[i]);
+        }
+        nums = [].concat(...digitBuckets);
+    }
+    return nums;
+}
+
+radixSort([23, 345, 5467, 12, 2345, 9852]);
