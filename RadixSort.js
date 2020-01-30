@@ -108,13 +108,21 @@ function mostDigits(nums) {
 
 function radixSort(nums) {
     let maxDigitCount = mostDigits(nums); //get highest digits - we will use this value to determine how many times we loop
-    for (let k = 0; k < maxDigitCount; k++) {
-        let digitBuckets = Array.from({length: 10}, () => []);
-        for (let i = 0; i < nums.length; i++) {
-            let digit = getDigit(nums[i], k);
-            digitBuckets[digit].push(nums[i]);
+    for (let k = 0; k < maxDigitCount; k++) { 
+
+        //we make 10 buckets, one for each number - 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+        let digitBuckets = Array.from({length: 10}, () => []); //our buckets - this is an array of 10 empty arrays 
+        
+        for (let i = 0; i < nums.length; i++) { //loop over every number in nums array
+            let digit = getDigit(nums[i], k); //for each number, take the number (nums[i]) and get the corresponding digit at index k  
+            digitBuckets[digit].push(nums[i]); //push the number (nums[i]) into its corresponding bucket according to the digit at index k
         }
-        nums = [].concat(...digitBuckets);
+        nums = [].concat(...digitBuckets); //replace the array nums with all the arrays in digitBuckets 
+        //e.g. [].concat([[1], [2], [3]]) 
+        //returns same thing [[1], [2], [3]]
+        //e.g. with the spread operator we combine all the values in each array
+        //returns [1, 2, 3] which is what we want
+        
     }
     return nums;
 }
