@@ -75,6 +75,13 @@ class DoublyLinkedList {
         this.length++; //increment length of DLLs
         return this; //return the DLL
     }
+
+    pop() { //remove node from end of DLL 
+        if (!this.head) { //can also use this.length === 0
+            return undefined;
+        }
+        var poppedNode = this.tail;
+    }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
