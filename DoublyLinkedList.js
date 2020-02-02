@@ -126,7 +126,6 @@ class DoublyLinkedList {
         return this;
     }
 
-    //unoptimized get method
     get(index) { //access a node in a DLL by its position - takes an idex number and returns the node at that index 
         //With DLL, you can start at either tail or head and find the node you are looking for
         //But with SLL, you can only start from the head because it is unidirectional
@@ -135,17 +134,48 @@ class DoublyLinkedList {
             return null;
         }
 
-        var count = 0;
-        var current = this.head;
+        var count, current;
 
-        while (count != index) {
-            current = current.next;
-            count++;
+        if (index <= this.length/2) { //looping from beginning if index is closer to beginning of DLL
+            console.log('Working from start');
+            count = 0;
+            current = this.head;
+
+            while (count != index) {
+                current = current.next;
+                count++;
+            }
+
+        } else { //we loop from the end rather than from the beginning because index is closer to the end of DLL
+            console.log('Working from end');
+            count = this.length - 1;
+            current = this.tail;
+
+            while (count !== index) {
+                current = current.prev;
+                count--;
+            }   
         }
         return current;
+    }
+
+    set(index, newValue) { //replacing the value of a node in a DLL based on index
+        var foundNode = this.get(index); //use get method to get node at index 
+        if (foundNode !== null) {
+            foundNode.val = newValue;
+            return true;
+        }
+        return false;
     }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
 newDLL.push(99); //push new node with value 99 to DLL
-
+newDLL.push(1);
+newDLL.push(2);
+newDLL.push(3);
+newDLL.push(4);
+newDLL.push(5);
+newDLL.push(6);
+newDLL.push(7);
+newDLL.push(8);  
