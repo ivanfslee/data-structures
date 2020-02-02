@@ -81,8 +81,38 @@ class DoublyLinkedList {
             return undefined;
         }
         var poppedNode = this.tail;
+        if (this.length === 1) { //special case if there is only one node 
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = poppedNode.prev; //set new tail - this is much easier to do here with DLL. With SLL we had to iterate through entire linked list
+            this.tail.next = null; //set new tail's next to be null
+            poppedNode.prev = null; //sever ties of poppedNode
+        }
+        this.length--;
+        return poppedNode; //return poppedNode 
+    }
+
+    shift() { //removing a node from the beginning of the DLL
+        if (this.length === 0) {
+            return undefined;
+        }
+
+        var oldHead = this.head;
+
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null;
+        }
+        this.length -= 1;
+        return oldHead;
     }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
 newDLL.push(99); //push new node with value 99 to DLL
+
