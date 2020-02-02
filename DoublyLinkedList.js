@@ -125,6 +125,25 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    //unoptimized get method
+    get(index) { //access a node in a DLL by its position - takes an idex number and returns the node at that index 
+        //With DLL, you can start at either tail or head and find the node you are looking for
+        //But with SLL, you can only start from the head because it is unidirectional
+
+        if (index < 0 || index >= this.length) { //edge cases - if negative index or index is equal or greater than length
+            return null;
+        }
+
+        var count = 0;
+        var current = this.head;
+
+        while (count != index) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
