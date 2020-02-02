@@ -167,6 +167,42 @@ class DoublyLinkedList {
         }
         return false;
     }
+
+    insert(index, value) { //add a node into DLL at a certain position
+        if (index < 0 || index > this.length) { //if index is less than zero or greater than length of DLL, return false
+            return false;
+        }
+
+        if (index === 0) { //if index is 0, use unshift method to add new node to beginning
+            console.log('Add node to beginning');
+            return !!this.unshift(value); //!! double bang turns it into boolean
+        }
+
+        if (index === this.length) { //if index is equal to length, use push method to add node to the end of DLL
+            console.log('Add node to end');
+            return !!this.push(value); //!! double bang turns it into boolean
+        }
+
+        //create new node
+        var newNode = new Node(value);
+
+        //note: before/after node are nodes that will be between the newly inserted node (newNode)
+        
+        //get node before the index we will insert at 
+        var beforeNode = this.get(index - 1); 
+        
+        //get node after the beforeNode
+        var afterNode = beforeNode.next;
+
+        //connect beforeNode and newNode
+        beforeNode.next = newNode, newNode.prev = beforeNode;
+
+        //connect afterNode and newNode
+        newNode.next = afterNode, afterNode.prev = newNode;
+
+        this.length++;
+        return true;
+    }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
