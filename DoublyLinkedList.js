@@ -203,6 +203,44 @@ class DoublyLinkedList {
         this.length++;
         return true;
     }
+
+    remove(index) { //remove a node in DLL by index 
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
+
+        //if index to remove is 0, just use shift method to remove node
+        if (index === 0) {
+            return this.shift();
+        }
+
+        //if index to remove is the last index (index - 1), use pop method to remove node
+        if (index === this.length - 1) {
+            return this.pop();
+        }
+
+        var removedNode = this.get(index);
+
+        //connect prev to the next of removed node (skipping the removedNode). Then connect the next's prev to removedNode's prev, also skipping the removedNode
+        removedNode.prev.next = removedNode.next;
+        removedNode.next.prev = removedNode.prev;
+
+        //alternatively instead of line 225 and 226 - you can replace with the following 4 lines:
+        // var beforeNode = removedNode.prev;
+        // var afterNode = removedNode.next;
+        // beforeNode.next = afterNode;
+        // afterNode.prev = beforeNode;
+
+
+        //sever removedNode's connections by setting next and prev to null
+        removedNode.next = null;
+        removedNode.prev = null;
+
+        this.length--;
+
+        console.log('Removing node:');
+        return removedNode;
+    }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
