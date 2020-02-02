@@ -111,6 +111,20 @@ class DoublyLinkedList {
         this.length -= 1;
         return oldHead;
     }
+
+    unshift(val) { //add a node to the beginning of the DLL
+        var newNode = new Node(val);
+        if (this.length === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 newDLL = new DoublyLinkedList(); //create new DLL 
