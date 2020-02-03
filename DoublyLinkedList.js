@@ -1,5 +1,14 @@
 //Construct a doubly linked list
 //Compare and contrast Doubly and Singly Linked Lists
+
+
+//Big O of Doubly Linked Lists
+    //Insertion - O(1) - same as SLL
+    //Removal - O(1) - different from SLL - O(N)
+    //Searching - O(N) - (technically O(N/2) but that simplifies to O(N))
+    //Access - O(N)
+
+
 //Implement basic operations on a doubly linked list 
     //push
     //pop
