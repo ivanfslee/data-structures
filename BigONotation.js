@@ -44,5 +44,27 @@
             //Or is space more important?
 
     //What data structure best allows you to solve problem with best time and space complexity
-    
+
+//////////////////////////////////////////////////////////////////////////////////////
+//Algo Expert - Memory
+    //Memory 
+        //As a canvas that is bounded (limited number of slots)
+        //Slots in memory - space complexity 
+        //Open memory slots that are consecutive 
+        //Memory is made up of bits (series of 0's and 1's)
+        //One bit - (0 or 1) - stands for 'Binary Digit'
+            //Binary Number System aka Base 2 Number System - 0000 0001 - 8 bit representation for number 1 
+            //Each column represents power of 2 number.  
+            //Right most column 2^0 -> 1
+            //Column next to it 2^1 -> 2
+            //Column next to it 2^2 -> 4
+        //One memory slot can store 8 bits aka 1 byte
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 //Algo Expert - Big O Notation
