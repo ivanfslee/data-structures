@@ -20,8 +20,6 @@
 
 //What a logarithm is
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////
 //Algo Expert - Complexity Analysis
     //Time Complexity & Space Complexity
@@ -56,8 +54,7 @@
             //Binary Number System aka Base 2 Number System - 0000 0001 - 8 bit representation for number 1 
             //We store data in memory using binary number system
             //Any piece of data can be transoformed into base 2 format and that is stored in blocks of 8 bits (1 byte)
-                //e.g. store number 1 in memory. You translate 1 to binary -> 0000 0001 and that binary number is stored in memory
-        
+                //e.g. store number 1 in memory. You translate 1 to binary -> 0000 0001 and that binary number is stored in memory 
         
         // 2^8 (256) unique data values you can represent with one byte    
             
@@ -98,3 +95,76 @@
 
 //////////////////////////////////////////////////////////////////////////////////////
 //Algo Expert - Big O Notation
+    //Big O - is worst case scenario
+        //Some algo's have best case/worst case/avg case
+        //In interviews, we will typically talk about worst case scenarios 
+
+    //Time Complexity - speed dependent on size of the input
+        //Measure of an algos speed/runtime as the size of the input increases
+        //O(1) - constant time - speed of algo is not affected by input increasing
+        //O(log N) - logarithmic time
+        //O(N) - linear time
+        //O(N log N) - 
+        //O(N^2) - quadratic time
+        //O(N^3)
+        //O(N^4)
+        //O(2^N)
+        //O(N!)
+
+    //What unit are we talking about here?
+        //O(1) - what is 1? what unit is 1?
+        //Elementary Operations
+            //e.g. accessing value in single memory slot would be constant time - O(1)
+
+            //Given this function/algorithm -> 1 + a[0]
+            //'a' is an array. we are accessing the first element in array at index 0
+            //Let's say we are working with 32 bit integers
+            //and accessing 1 memory slot (1 byte) is an elementary operation 
+            //We are adding 2, 32 bit integers, so that would be at least 8 elementary operations 
+            //So, would that be O(8)????
+            //We don't really care about the exact number of operations 
+            //As size of array 'a' increases towards infinity, the number of operations is still the same (8)
+            //From asymptotic analysis point of view, we simiplify O(8) to O(1)
+
+    //Elementary operations (constant time)
+        //addition/subtraction
+        //declaring variables 
+        //Under the hood, anything that does constant number of memory slot reads
+
+
+    //We only really care about the significant factors in our complexity and we drop constant factors 
+        //Lets say you have an algo O(N^2 + N + 1)
+        //From an asymptotic analysis point of view, this algo would simplify to O(N^2)
+
+        //Lets say you have an algo O(3N^2)
+        //The multiple 3 is a constant factor. 
+        //From an asymptotic analysis point of view, this algo would simplify to O(N^2)
+
+
+    //mathematical term - 
+        //asymptotic analysis - as input size goes towards infinity 
+        //Big O notation - 
+            //O(1) ->
+                //As size of my input, N, increases and tends towards infinity, the speed of my algorithm (or amount of auxiliary memory it takes up if we are talking about space complexity)
+                //remains constant 
+            //O(N) -> Asymptotic analysis of my algorithm
+                //Speed of my algorithm increases linearly as N tends toward infinity 
+
+    //Space Complexity - essentially the same with time complexity (at least conceptually)
+
+
+    //Examples - 
+        //Traverse array - O(N)
+        //Traverse array front to back and back to front - O(2N) simplifies to O(N)
+        //Traverse array for each element in array - O(N^2)
+        //O(N^3 + log (N) + 3) simplifies to O(N^3)
+        
+        //What if your algo has 2 inputs - 2 arrays of length N and M
+            //O(N + M)
+        
+        //If your algo has 2 inputs and it's Big O is O(M^2 + 2N)
+            //This simplifies to O(M^2 + N) 
+            //The N does not drop out because it is a different variable from M
+        
+        //O(N! + log(M) + 2N + 3)
+            //simplifies to O(N! + log(M))
