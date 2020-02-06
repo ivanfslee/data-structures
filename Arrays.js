@@ -31,3 +31,10 @@
     //forEach/map/filter/reduce - O(N) - loop over each element 
 
 //Most operations with arrays are O(N) 
+
+
+//////////////////////////////////////////////////////////////////////////////
+//Algo Expert - Arrays
+    //How are arrays stored in memory?
+        //bounded memory canvas with slots
+        //each slot holding a byte (8 bits)
