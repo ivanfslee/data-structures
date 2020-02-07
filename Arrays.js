@@ -38,3 +38,11 @@
     //How are arrays stored in memory?
         //bounded memory canvas with slots
         //each slot holding a byte (8 bits)
+
+    //Scenario - [1, 2, 3] - Storing array with 3 integers in memory
+        //Each integer is a fixed width integer, taking up 8 bits each 
+        // 8 * 3 = 24 consecutive memory slots taken up 
+    
+    //Two Types of Arrays 
+        //Static Arrays
+        //Dynamic Arrays 
