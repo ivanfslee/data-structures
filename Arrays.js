@@ -44,5 +44,42 @@
         // 8 * 3 = 24 consecutive memory slots taken up 
     
     //Two Types of Arrays 
-        //Static Arrays
+        //Static Arrays 
+            //Fixed number of memory slots 
+            //Tell operating system - 'I want 24 slots of memory'
+            //You specify the number of memory slots you need and the OS allocates it to you
+            
+            //Operation:
+                
+                //get operation for array - O(1) - constant time operation
+                //We're not using any extra memory to get an element so space complexity is also constant - O(1) space 
+
+                //Read/access a value at a given index - is typically instant - O(1) 
+                //Why?
+                    //We know the memory address we start at
+                    //We are storing fixed width integers 
+                    //So every integer has 8 memory slots allocated to it 
+                    //So we know that first integer in array starts at a certain memory slot
+                    //And we know the next integer is at that memory slot plus 8 (because they are all fixed width integers)
+                    //Subsequently, the next integer after that is starting integer plus 16 or previous integer plus 8
+                    
+                    //So when we access an element in an array at a given index, the OS is looking for the starting memory address of the first element in array
+                    //Then OS looks at how many bytes does each element take up. 
+                    //Then OS looks at the index we are specifying . e.g. someArray[2] - looking at index 2 
+                    //Then OS multiples the fixed width (8, in this case) and multiplies it by the index (2, in this case) 
+                    //We get 16 - then OS looks at the 16 memory slots after the first memory slot. 
+                    //Then we arrive at the memory slot that the element with index 2 is at 
+                    //All these operations are constant time operations - typically, multiplication in this case 
+            
+            
+                //set operation - we want to overwrite a value in an array at a given index
+                //O(1) 
+                //e.g. someArray[2] = 5
+                //We can access the value at index 2 in constant time
+                //Then we overwrite the binary numbers at that index with new binary numbers 
+            
+            
         //Dynamic Arrays 
+            //JavaScript
+            //Python
+            //Array memory allocation is flexible. You can add elements and remove elements
