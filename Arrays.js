@@ -50,7 +50,24 @@
             //You specify the number of memory slots you need and the OS allocates it to you
             
             //Operation:
+                //get - O(1) time and space
+                //set - O(1) time and space
+                //init - O(N) time and space
+                //traverse - O(N) time, O(1) space
+                //copy - O(N) time and space
+                //insert static array - O(N) time O(1) space
+                //insert dynamic array - O(1) time
+                //pop - O(1) time and space 
+
+                //1 - init
+                //init - O(N) time - (more specifically O(8 * N) - if we are dealing with 64 bit integers)
+                //O(N) space as well because we are taking memory slots proportional to the number of elements we are storing in array
                 
+                //initialize an array - aka - create an array
+                    //we specify we are creating an array of length n elements 
+                    //OS goes into memory and finds n times 8 consecutive memory slots
+
+                //2 - get
                 //get operation for array - O(1) - constant time operation
                 //We're not using any extra memory to get an element so space complexity is also constant - O(1) space 
 
@@ -71,15 +88,72 @@
                     //Then we arrive at the memory slot that the element with index 2 is at 
                     //All these operations are constant time operations - typically, multiplication in this case 
             
-            
+                //3 - set            
                 //set operation - we want to overwrite a value in an array at a given index
-                //O(1) 
+                //O(1) constant time and constant space
+                //we are not using up any additional memory 
+                //time complexity is constant time also 
+
                 //e.g. someArray[2] = 5
                 //We can access the value at index 2 in constant time
                 //Then we overwrite the binary numbers at that index with new binary numbers 
             
-            
+                //4 - traverse
+                //traversing through array
+                //O(N) time
+                //O(1) space - because we are not using any additional space
+
+                    //traversal applies to 
+                    
+                    //methods that utilize array traversal will also be O(N) time 
+                        //javascript filter, reduce, map, forEach, all these built-in array methods that involve traversing through an array 
+                        //space complexity would depend on which method you use. 
+                        //e.g. map method - you are creating a new array so that would be O(N) time and space
+                
+                //5 - copy array
+                //O(N) space and time
+                //So copying is a relatively expensive operation 
+                //You are traversing through array and also creating a new array
+                //So that uses more memory as well 
+                    //e.g. javascript slice method is an O(N) time and space operation
+                    
+                //6 - insert - middle/end/beginning 
+                //fairly expensive operation
+                //insert operation includes copy operation
+                //copy array and find memory enough slots to fit another element in array
+                //O(N) time - because we copy array
+                //O(1) space - we also wipe out the previously used memory slots (we free that up) and it takes up same amount of space
+
+                //For a dynamic array - insertion is:
+                    //O(1) constant time for insertion at the end of array
+                    //Inserting in the middle or beginning of array - O(N) time because
+                    //You have to shift everything down by one, which is an O(N) operation
+                    //unshift method is O(N) time
+
+                //6 - pop method - remove last element from array
+                //remove from end of array - O(1) constant time and space
+
+                //shift method - remove from beginning is O(N) time
+                //removing element from middle of array or beginning of array is O(N) time
+
+                //in a queue data structure popping from the beginning element is constant time
+
+                //If you are doing something on only a portion of the array, it is still O(N) linear time
+                //e.g. acting on half the array O(.5N) simplifies to O(N) 
+
         //Dynamic Arrays 
-            //JavaScript
-            //Python
+            //An array that can change in size - it will allow for faster insertion
+            
+            //standard arrays in JS and python are dynamic arrays
+                //JavaScript
+                //Python
             //Array memory allocation is flexible. You can add elements and remove elements
+
+            //With dynamic arrays, when you create an array, OS will allocate roughly ~twice as much memory slots for the array
+            //e.g. [1,2,3] - 3 item memory slot actually looks like this [1,2,3,-,-,-]
+
+            //When you copy/insert the dynamic array, the OS will allocate twice the number of memory slots that you will need
+            //Any memory slots allocated that are not used, will have O(1) insertion times
+            //Any copying/inserting after the array is full will be O(N) insertion times.
+        
+        //Amortized Analysis
