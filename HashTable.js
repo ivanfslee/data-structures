@@ -240,4 +240,51 @@ class HashTable {
 
             //You might see that in this way, arrays and hash tables are similar
             //In arrays, the index is the key, and given an index, you can access the value in constant time
+            //With arrays you have constant time look up - O(1)
+
+            //With hash tables, the keys don't have to be integers/numbers like in arrays
+            //Keys can be strings or even other data types
+        
+        //Under the hood, Hash tables are built on top of arrays 
+
+            //You use a hash function to convert the key into an index which is put into an array
+            //so, when you input a key to retrieve the value, you use the hash function to get the index, 
+            //then subsequently,get the value at that index in the underlying array (which is O(1) constant time)
+
+        //Hash function - 
+            //first we need to convert string to an integer
+            //many ways to do this
+                //convert letter to ascii code value
+                //sum all ascii code values
+
+            //e.g. we have an array with 3 empty slots [-, -, -]
+            //e.g. 'foo' -> 1
+            //'foo' is the key, 1 is the value 
+            //Lets say we convert 'foo' to ascii code and sum it, and we get 301
+            //we take the sum (301) and modulo the length of the array (3)
+            //301 % 3 
+            //We get 1 -> the value 1 in this case, will store into index 1 in array
+            //**********If you modulo the length of your array, you will always get a number within the length of the array **********
             
+            //e.g. 'bar' -> 2
+            //602 is ascii sum and will map to index 2
+            //value of 2 will store at index 2
+
+            //e.g. 'baz' -> 3
+            //let's say the sum is 90
+            //this maps to 0, so it will store value 3 at index 0
+
+            //At the end, our array looks like this [3, 1, 2]
+            
+            //So, when we want to perform a hash table lookup
+            //for key 'bar'
+            //we put bar into our hash function and it outputs 602, we modulo 3 it and we get index 2
+            //then we get value at index 2 in our array which will return 2
+
+            //problem: what if 2 keys map to the same index value? that is, a 'collision'
+                //In actuality, each index in the array stores a LINKED LIST of values
+                //The linked list is to take care of situations where 2 or more keys map to the same index and 'collide'
+
+                //how do we map the linked list values to their correct keys?
+                //We need to connect every node in the linked list to their corresponding key
+                //13:37 timestamp
