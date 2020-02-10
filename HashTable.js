@@ -218,3 +218,26 @@ class HashTable {
     //Search - can be O(1)
     //Speed is determined by how fast the hash function is and how evenly it distributes into the array 
     //It is possible to have O(1) hash function and programming langues hash tables have a constant time hash function 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+// Algo Expert Hash Table Notes
+    //The JavaScript obj is a hash table
+    //In python, the dictionary is a hash table 
+    //Hash tables - 
+        //to make it performant under the hood is kind of complicated
+        //In the context of interviews, the stuff we need to know about hash tables is simpler.
+    
+    //Hash Table
+        //Storing pairs of keys and values
+        //Each key maps to a value
+        //You can access a value, given a key
+        //Cannot do the other way around, given a value, get the key
+
+        //Constant time operations - O(1)
+            //insertion of key-value pair
+            //deletion of key-value pair
+            //searching of value, given a key
+
+            //You might see that in this way, arrays and hash tables are similar
+            //In arrays, the index is the key, and given an index, you can access the value in constant time
+            
