@@ -233,6 +233,15 @@ class HashTable {
         //You can access a value, given a key
         //Cannot do the other way around, given a value, get the key
 
+        //requirements of the keys in hash tables
+            //key doesn't have to be a string
+            //just needs to be a value that can be hashed into an integer 
+            
+        //initialize hash table of n key-value pairs 
+            //O(N) time and space
+            //the linked list in the array contains the value. and the pointer to the key. 
+            //it is just storing the pointer, not the key itself. Storing the actual key would use up more memory
+
         //Constant time operations - O(1)
             //insertion of key-value pair
             //deletion of key-value pair
@@ -287,4 +296,49 @@ class HashTable {
 
                 //how do we map the linked list values to their correct keys?
                 //We need to connect every node in the linked list to their corresponding key
-                //13:37 timestamp
+                
+                //Given this collision scenario, is it possible that a worst-case scenario develops where all values 
+                //are in a single linked list in one index of the array?
+
+                //Which would mean insertion/search/deletion would be O(N) linear time?
+                //Yes!
+
+                //Hash tables support constant time operations - O(1) ON AVERAGE 
+                //But in a worst-case scenario, you can end up with one large linked-list or multiple large linked-list, and end up with O(N) time operations for insertion/deleting/searching
+
+                //so for hash tables 
+                //O(1) - constant time on average
+                //O(N) - linear time worst-case 
+
+                //Smart people have created hashing functions that minimize collisions 
+                //These hashing functions are so good, that MOST of the time, you can assume O(1) constant time for insertion/deletion/search
+                //Unless interviewer says you must ensure constant time operation, in which case, you would have to be aware of the O(N) worst-case scenario and deal with it
+
+                //Hashing functions are also assumed to be constant time operations - O(1)
+                //To hash a key, you can assume that the operation is constant time 
+            
+            //resizing - when your array doesn't have enough space to store key-value pairs 
+            //a hash table that resizes itself
+            //there are simple and complicated ways to resize
+                //Array of length 10
+                //As you enter key value pairs into array
+                //array gets filled up, let's say 2/3rds of the way full
+                //7 indices in array that get filled up
+                //hash table will know to resize itself
+                    //one way is to copy underlying array and double it in size 
+                    //similar to a dynamic array that copies and doubles itself
+                    //then it passes all key value pairs into hashing function again and modulo by the new length of the array
+                    //the key value pairs would then be at new positions/indices in the new array
+
+                    //this would be similar to if hash table decreases in size, it might resize itself smaller
+                    //once some lower threshold is reached in the array being filled up, array may be resized
+                    //this resizing smaller would be to save space
+
+                    //resizing is one way to avoid collisions, when you have an array that is not big enough to store the key value pairs
+                    //otherwise, you will end up with a filled array with very large linked lists 
+                
+                //amortized dynamic array would be constant time 
+                //in the same way, the resizing of the hash table would be infrequent enough to still retain the O(1) constant time complexity for insertion/deletion/search operations
+
+
+

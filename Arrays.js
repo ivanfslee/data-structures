@@ -157,3 +157,6 @@
             //Any copying/inserting after the array is full will be O(N) insertion times.
         
         //Amortized Analysis
+            //amortized time complexity of appending a value to the end a dynamic array is O(1) constant time 
+            //a dynamic array will double in size when it gets full
+
