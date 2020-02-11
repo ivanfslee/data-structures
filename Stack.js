@@ -72,3 +72,12 @@ stack.push(123);
 // In our implementation we will be adding and removing from the beginning of our list rather than the end 
 // Because with SLL - add and remove at the beginning is O(1) constant time 
 // If we used a DLL - add and remove at beginning or end would both be O(1) constant time operations 
+
+
+//////////////////////////////////////////////////////////////////////////
+//Algo Expert Stacks and Queues Notes
+    //Stacks = Last In, First Out 
+        //Data Structure that supports inserting and removing elements that follows last in/first out 
+    
+    //Queue = First In, First Out 
+        //
