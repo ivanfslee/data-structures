@@ -76,8 +76,39 @@ stack.push(123);
 
 //////////////////////////////////////////////////////////////////////////
 //Algo Expert Stacks and Queues Notes
+    //Big O of Stacks and Queues
+        //Support O(1) constant time and constant space insertion and deletion of elements 
+        //O(N) linear time for searching for an element - O(1) space
+        //O(N) space for storing an element, where N is number of elements in stack/queue, O(1) time to add/remove element 
+        //Typically, stacks and queues are initialized empty and add things one by one when you need to
+
+        //Both structures also typically support a 'peek' method
+            //O(1) constant time and constant space operation
+            //It just shows the next element to be dequeued/popped from the queue/stack
+
     //Stacks = Last In, First Out 
         //Data Structure that supports inserting and removing elements that follows last in/first out 
+        //List of elements in some sort of order - that follow LIFO 
+        //Adding or removing an element in/out of stack is O(1) constant time and space
+        //A stack under the hood is really just a dynamic array or can be implemented using an array under the hood
+            //recall, push/pop on a dynamic array is amortized constant time operation
+            //e.g. given an array - [1, 2, 3] - 'push' an element on the end of a stack or 'pop' an element from the end of stack is constant time
+            //This also means searching for an element in the stack is O(N) time and O(1) space - you have to traverse entire dynamic array
+            //This also means adding an element to the front of stack is also O(N)
+                //Though, with a stack, we don't care about adding elements in the beginning/in the middle of the stack
     
+    //Taking stacks a step further
+    //Max stack/min stack
+        //stack that keeps track of largest element or smallest element
+
     //Queue = First In, First Out 
-        //
+        //List of elements that follow FIFO
+        //Adding or removing an element in/out of the queue is O(1) constant time and space
+        //In order for a queue to support constant time insertion at the beginning and removal at the end, it uses a singly linked list
+        //A dynamic array cannot have insertion in the beginning be constant time 
+        //to 'enqueue' aka add to the head of the linked list - you can do this in constant time 
+        //to 'dequeue' aka remove the tail of the linked list - you can do this in constant time
+    
+    //Taking queues a step further
+    //Priority queue
+        //queue that keeps track of priority
