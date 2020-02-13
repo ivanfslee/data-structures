@@ -289,3 +289,58 @@ g.addEdge('E', 'F');
     //visiting all direct neighbors of a vertex first before visiting a neighbor's neighbor
     //utilizes a queue (implemented as an array) - first in, first out
     //queue -> uses push and shift 
+
+
+///////////////////////////////////////////////////////////////
+//Algo Expert Graph Notes
+    //Graphs - collection of vertices and their relationships
+    //Vertices - aka node
+    //Edges - connections between vertices
+    //Connected Graph - you can reach each node in graph
+    //Unconnected/Disconnected Graph - you cannot reach each node in the graph
+    
+    //Directed Graph - arrows and directionality between vertices. Edges have a direction
+        //e.g. flights between airports
+
+    //Undirected Graph - do not have directions. Connections between vertices are bidirectional
+        //e.g. friendships on facebook 
+
+    //Cyclic Graph - If at any point on the graph where 3 vertices form a loop between them
+        //If you are dealing with a cyclic graph, you have to wary of infinite looping in your algorithm
+        //e.g. links on wikipedia
+
+    //Acyclic Graph -
+
+    //Connectivity, direction, cycles - 3 major concepts in graphs 
+
+    //2 dimensional array
+        //
+
+    //Applications of graphs
+        //
+    
+    //Representing Graphs in code 
+        //Adjacency Lists - rarely used in interviews
+            //Storing a list of nodes and the nodes value. Each node has list of their immediate connections/edges. The edges/connections are just pointers
+            //also can be represented as a hash table of nodes 
+        //Space complexity - for storing a graph is O(V + E) space
+            //You are storing V vertices. V is number of vertices/nodes
+            //Each vertex has their E, edges
+            //E is number of edges
+            //So, space complexity of a graph is O(V + E) space
+        
+        //Most common operation you perform on a graph is traversal
+            //2 main traversal methods
+                //Time complexity for traversal is O(V + E) 
+                    //We go through each vertex and their edges
+                //Breadth First Search
+                    //go through a vertex's children/neighbor vertex first 
+                    
+                //Depth First Search 
+                    //Traversing graph deeper first 
+                    //Go through a branch of a vertex first 
+                    //then wide
+        
+        //Other graph operations
+            //adding/removing vertices
+            //adding/removed edges 
