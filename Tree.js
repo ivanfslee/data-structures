@@ -116,3 +116,69 @@ class BinarySearchTree {
 //Insert method can be done iteratively or recursively 
 //Find/Search method can be done iteratively or recursively
     //Find if a certain value is in the tree
+
+
+/////////////////////////////////////////////////////////////////////
+//Algo Expert Notes on Trees
+    //Trees
+        //Special type of graph 
+        //Good for storing data hierarchically
+        //Commonly used to test knowledge of recursion during interviews
+    //Tree Definition
+        //Tree - is a graph structure that is rooted
+            //has a 'root' - the top node 
+            //every node has child nodes 
+            //typically, the connections are directed
+            //They point downwards towards the child nodes 
+            //also acyclic - won't point back upwards or form a loop
+            //each node in tree can only have one parent (except root node - which has no parent)
+            //A single Tree cannot be disconnected - every element is connected to one another 
+        
+        //Examples of trees
+            //e.g. management chain in a company
+            //family trees 
+            
+        //Most common type of tree 
+            //binary tree
+                //normal tree where every node has at most 2 child nodes 
+        
+        //Ternary tree 
+            //every node has at most 3 child nodes 
+        
+        //generalize 
+            //k-ary trees 
+                //k is the max number of trees a child can have
+        
+        //Binary search trees
+            //special kind of binary tree
+            //each node's 
+        
+        //Heaps 
+            //Binary heap - 2 types
+                //Min Heap 
+                //Max Heap
+        
+        //Tries - are a tree-like data structure that contain characters in a string
+
+        //Sometimes, child node may contain a pointer that points to its parent node
+
+        //Basically, there are alot of different types of trees
+
+        //Big O for trees
+            //Storing a tree - almost always O(N) space complexity  
+                //where N is the number of total nodes in the tree
+            
+            //Traversing tree
+                //O(N) time complexity - traversing through all N nodes of three 
+                
+                //Going through a sub tree and not all the nodes 
+                    //When going through a binary tree - 
+                    //With Each step, you go down a subtree
+                    //if it was a 'balanced' binary tree
+                    //That would be O(log N) time 
+                    //each step down the tree will effective eliminate half of the remaining nodes in the tree
+                    
+            
+
+
+
