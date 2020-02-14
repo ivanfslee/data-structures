@@ -177,6 +177,35 @@ class BinarySearchTree {
                     //if it was a 'balanced' binary tree
                     //That would be O(log N) time 
                     //each step down the tree will effective eliminate half of the remaining nodes in the tree
+
+                    //It is likely O(log N) time - best case scenario/average case - if you have balanced tree 
+                    
+                //Trees and balance
+                    //A tree is said to be balanced if it maintains a O(log N) time complexity for traversal
+
+                    //If tree is unbalanced, that is, skewed towards one side. 
+                    //Then the time complexity is O(N) - worst-case scenario 
+
+                    //The concept of balanced trees is important
+                        //There are certain advanced trees - ABL trees, Red/Black Trees
+                        //That rebalance themselves and maintain the O(log N) time complexity
+                        //Familiarize yourself with these advanced trees 
+                
+            //Tree Terminology
+                //Branch - Any path that starts at root node and ends at bottom nodes
+                //Leaf nodes - bottom nodes
+                //Levels - each level/depth/height of a tree
+                //A tree is said to be 'Complete' if every level (except last level) of a tree is filled up
+                    //If tree is filled/complete, the final level doesn't have to be filled up, but it does have to fill up starting from left to right
+                        //In heap data structure, heaps are typically 'complete'
+                //A tree is 'Full' if every child node contains k nodes. where k is k in k-ary tree 
+
+                //A tree can be 'Full', but not 'Complete'
+
+                //A 'Perfect' tree is a tree where all leaf nodes have the same depth
+
+
+
                     
             
 
