@@ -76,3 +76,35 @@
 
     //Video 1 - 4
     //About the Course
+        //Course Topics
+            //1. Vocabulary for design and analysis of algorithms 
+                //Big O Notation
+                //'sweet spot' for high-level reasoning about algorithms
+            //2. Divide and conquer algorithm design paradigm
+                //Other design paradigms in later course
+                //Divie and conquer applies to - integer multiplication, sorting, matrix multiplication, closest pair
+                //General analysis methods ('Master Method/Theorem')
+            //3. Randomization in algorithm design
+                //Randomized algorithm will have different executions when you run it over and over again, even on the same input 
+                //Will apply to - quicksort (picking a pivot), primality testing, graph partitioning, hashing 
+            //4. Primitives for reasoning about graphs
+                //Primitives are very fast, sometimes as fast as reading the input 
+                //Using primitives to model:
+                    //connectivity information, shortest paths, structure of information and social networks
+            //5. Use and implementation of data structures
+                //heaps, balanced binary search trees, hashing and some variants (e.g. bloom filters)
+
+    //Topics in Sequel Course        
+        //Course Topics
+            //Greedy algorithm design paradigm
+            //Dynamic programming algorithm design paradigm
+            //NP-complete problems and what to do about them
+            //Fast heuristics with provable guarantees
+            //Fast exact algorithms for special cases
+            //Exact algorithms that beat brute-force search 
+
+    //Supplemental Books for Algorithms and this Roughgarden Course
+        //Kleinberg/Tardos, Algorithm Design
+        //Free Online - Dasgupta/Papadimitriou/Vazirani, Algorithms
+        //Cormen/Leiserson/Rivest/Stein, Introduction to Algorithms
+        //Free Online - Follows Roughgarden course - Mehlhorn/Sanders, Data Structures and Algorithms: The Basic Toolbox
