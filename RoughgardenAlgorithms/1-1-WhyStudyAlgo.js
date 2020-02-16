@@ -108,3 +108,80 @@
         //Free Online - Dasgupta/Papadimitriou/Vazirani, Algorithms
         //Cormen/Leiserson/Rivest/Stein, Introduction to Algorithms
         //Free Online - Follows Roughgarden course - Mehlhorn/Sanders, Data Structures and Algorithms: The Basic Toolbox
+    
+    //Video 1-5
+    //Merge Sort Motivation and Example 
+        //Why study merge sort?
+            //it's a good introduction to divide and conquer paradigm
+            //it improves over selection sort, insertion sort, and bubble sort
+            //it motivates guiding principles for algorithm analysis 
+            //algorithm analysis - (i.e. worst-case and asymptotic analysis)
+            //merge sort uses recursion, which allows us to analyze it and generalize it for other algorithms that use recursion
+        
+    //Merge Sort 
+        //input - array of n numbers, unsorted - [5, 4, 1, 8, 7, 2, 6, 3]
+        //output - same numbers, sorted in increasing order - [1, 2, 3, 4, 5, 6, 7, 8]
+        //note: we say that the elements in the array need to be distinct (unique)
+        //if there are duplicates, algorithm would still work 
+        
+        //overall - merge sort splits array in halves until it reaches a base case of 0 or 1 element sorted arrays
+        //then merges those sorted arrays 
+
+    //Video 1-6
+    //Merge Sort Pseudocode
+        //recursively sort 1st half of input array
+        //recursively sort 2nd half of input array
+        //merge two sorted sublists into one 
+        //note: this pseudocode ignores/doesn't mention base cases - you need the base cases in your code for merge sort to work
+        //note: we also don't mention if number of elements in array is odd 
+        //note: he also doesn't go into detail about the recursion, as it depends on the programming language
+
+        //At this point we have 2 sorted subarrays - left half and right half
+        //The next step is to merge 
+
+        //Pseudocode for merge subroutine
+            //C = output array (length = n)
+            //A = 1st sorted array (length = n/2)
+            //B = 2nd sorted array (length = n/2)
+
+            //i = 1 (pointer for array A)
+            //j = 1 (pointer for array B)
+
+            //for k = 1 to n
+                //if A(i) < B(j)
+                    //C(k) = A(i) (push element into output array)
+                    //i++         (increment pointer)
+                //else B(j) < A(i)
+                    //C(k) = B(j)
+                    //j++
+            //end
+
+            //note: we are ignoring some cases like when i and j exceed length of their respective array 
+            //if it does reach the end of the array, just copy over the rest of the elements in the other array into the output array
+
+    //Merge Sort Running Time?
+         //Key Question: What is the running time of merge sort on array of n numbers?
+         //running time is roughly equal to the number of lines of code executed 
+
+        //2 operations
+            //i = 1 (pointer for array A)
+            //j = 1 (pointer for array B)
+        
+        //the above 2 operations plus 4 operations per iteration in the loop 
+
+        //upshot: running time of the merge subroutine given an array of m numbers 
+        //is at most 4m + 2 operations 
+
+        //We can say that rather than 4m + 2, we can say at most 6m operations because m is at least 1 
+        
+        //That is the number of operations for the merge subroutine
+        //How about the number of operations for the splitting of the arrays - (the recursive calls) 
+
+        //Our Claim: merge sort requires at most (6n * log n) + 6n operations to sort n numbers 
+
+        //recall bubble, selection, and insertion sort have a constant time n^2 running time 
+
+        //Logarithm: how many times you have to divide by 2 to get 1 or number below 1 
+
+    // Video 1-7
+    //Merge Sort Analysis
