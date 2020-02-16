@@ -12,7 +12,7 @@
     
     //Video 1 - 2
     //Integer Multiplication 
-    //Transform an input - 2 numbers, into an output, their product 
+        //Transform an input - 2 numbers, into an output, their product 
 
     //IOCE - input/output/constraints/edge cases
 
@@ -21,3 +21,58 @@
         //2. Say what input is, say what output is 
         //3. Give a solution, giving an algorithm that transforms the input to the output
     
+    //Integer Multiplication
+        //Input: 2, n-digit numbers x and y
+        //Output: the product x * y
+    
+        //The way we assess the performance of the algorithm is through the number of primitive operations that it performs 
+
+        //Defining a 'Primitive Operation' - add or multiply 2 single-digit numbers
+
+        //We then count the number of these primitive operations that the integer multiplication algo performs as a function of the length of the input numbers 
+
+        //Analysis of number of operations as a function of the input length n 
+            //The number of primitive operations is roughly 4n^2
+            //Upshot: number of operations overall is less than or equal to a constant times n^2 (e.g. 4 * n^2)
+
+    //Algorithm Designer's Mantra
+        //"Perhaps the most important principle for the good algorithm designer is to refuse to be content"
+            //Aho, Hopcroft, and Ullman, The Design and Analysis of Computer Algorithms, 1974
+
+        //"Can we do better?"
+
+    //Video 1 - 3
+    //Karatsuba Multiplication Algo
+
+
+    //Recursive Algorithm for Multiplying Integers with even number of digits 
+        //only applies to multiplying numbers with even number of digits
+        //Multiplying 2 numbers x and y - can be expressed in:
+            //x = 10^n/2 * a + b
+            //y = 10^n/2 * c + d
+            //where a, b, c, d are n/2 digit numbers
+
+            //e.g. Multiplying 5678 * 1234
+            //a = 56, b = 78, c = 12, d = 34
+            //Then x * y = (10^n/2 * a + b) * (10^n/2 * c + d)
+            //equation -> x * y = 10^n * a * c + 10^n/2 * (a * d + b * c) + b * d
+            //Idea: recursively compute ac, ad, bc, bd then compute the equation in the straightforward way you learned in 3rd grade 
+            //Base case would be when multiplying single digit numbers
+
+            //Is the Karatsuba algo/recursive algorithm better than the algorithm you learned in 3rd grade????
+
+            //Instead of recursively computing 4 times - ac, ad, bc, bd, we can get away with 3 recursive calls
+            //x * y = 10^n * a * c + 10^n/2 * (a * d + b * c) + b * d
+            //From the equation, we want the products of ac, ad, bc, bd
+
+            //Step 1. recursively compute ac
+            //Step 2. recusrively compute bd
+            //Step 3. recursively compute (a + b)(c + d) = ac + ad + bc + bd
+            //Step 4. Gauss's Trick: Subtract step 1 and step 2 from step 3.  Step 3 - Step 1 - Step 2.  Results in ad + bc 
+
+            //Upshot: only need 3 recursive multiplications (and some additions)
+
+    //Karatsuba Multiplication is a kind of divide and conquer algorithm 
+
+    //Video 1 - 4
+    //About the Course
