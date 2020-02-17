@@ -185,3 +185,61 @@
 
     // Video 1-7
     //Merge Sort Analysis
+    //We will substantiate our claim
+
+    //Claim: For every input array of n numbers,
+    //Merge Sort produces a sorted output array and uses at most
+    //(6n * log n) + 6n operations
+
+    //Proof of claim (assuming n = power of 2)
+    //We will use 'recursion tree' method to prove
+    // level 0 - outer call to merge sort    root  O    entire input
+    //                                           /   \
+    //level 1 - 2 recursive calls               O     O
+    //                                         / \   / \
+    //level 2 - 2 recur calls for each child  O   O O   O
+    //                                        .   . .   .
+    //                                        .   . .   .
+    //what level do the leaves reside?        .   . .   .
+        //level log n 
+    //At level log n - these are where there are single-element arrays and is our base cases for the recursion
+    //The input size is being decreased by a factor of 2 for each level of the recursion
+    //Since we start at level 0, the total number of levels is (log n) + 1
+
+    //There are a total of log n + 1 levels 
+
+    //j = level (recursion level)
+    //j = 0, 1, 2,..., log n 
+    //Each level has 2^j subproblems (subproblems = arrays). That is, the number of split arrays is 2^j
+    //Each array/subproblem has n/2^j elements in them 
+
+    //We can now calculate total number of operations at level j
+    //2^j * 6(n/2^j) 
+    //Recall - the 6 is the work per level-j subproblem 
+    //6m is the number of operations done for the merge subroutine, m is the number of elements in the array
+    //in this case, n/2^j = m 
+    //We can substitute n/2^j for m 
+
+    //We get this upper bound for the total number of operations at level j - 2^j * 6(n/2^j) 
+    //2^j * 6(n/2^j) 
+    //The 2^j's cancel out, leaving just 6n
+    //Which means that the total number of operation at level j is independent of j
+    //Said another way, each level has the same number of upper bound operations - 6n
+    //That is, we do AT MOST 6n operations per recursion level 
+
+    //We can then calculate the total number of opertions for merge sort by
+    //multiplying number of operations per level times the total number of levels
+    //number of operations per level = 6n
+    //total number of levels = log n + 1 
+
+    //So the total number of operations would be - 6n * (log n + 1)
+    //or (6n * log n) + 6n  
+
+    //note: why do the 2^j's cancel out?
+        //2^j - the number of subproblems/arrays doubles each time
+        //but at the same time the number of elements in each subproblem/arrays is cut in half each time
+        //So in effect, the 2^j's cancel each other out. 
+
+    //Video 1-8
+    //Guiding Principles for Analysis of Algorithms 
+
