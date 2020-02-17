@@ -242,4 +242,43 @@
 
     //Video 1-8
     //Guiding Principles for Analysis of Algorithms 
+        //1. Use 'worst-case' analysis - we define the upperbound of the running time of our algo
+                //Our running time bound holds for EVERY input of length n
+                //With worst-case analysis - we are making no assumptions about where the input comes from 
+                //Appropriate for 'general-purpose' routines
+                //Mathematically more tractable than 'average-case' analysis
+                
 
+            //Other types of analysis 
+                //'average-case' analysis - the avg running time of algo based on frequency of certain inputs
+                //benchmarks - we define a typical input size that reflects its usage case/scenario 
+                //note: for both these types of analysis - requires specific domain knowledge
+                    //you need to know what inputs are more common than others
+                    //what is the typical input etc 
+        
+        //2. Ignore constant factors and lower-order terms
+            //Justifications:
+                //1. way easier
+                //2. constants depend on architecture/compiler/programmer/language etc
+                    //If you are optimizing a critical algo for your start-up - constants are important
+                //3. lose very little predictive power
+        //note: for programming languages, if input size is small, language may use insertion sort instead
+        //then for large input sizes, the language may switch to merge sort
+        //Typically, with smaller input sizes you use the algorithm with the smaller constant factor
+        //With larger input sizes, you use the algorithm with better rate of growth
+        //Python's sort is 'Tim Sort' which is a combination of insertion and merge sort
+
+        //3. Asymptotic Analysis - focus on large input sizes
+            //Focus onrunning time for large input sizes n
+            //e.g. merge sort (6n log n) + 6n is 'better than' insertion sort (1/2)n^2
+                //this is only true for large input sizes
+                //For small input sizes, (1/2)n^2 is actually faster
+    
+        //What is a "fast" algorithm?
+            //This course: adopy these three biases as guiding principles
+                //fast algorithm is one where worst-case running time grows slowly with input size
+                //worst-case is a 'sweet spot' : mathematical tractability and predictive power
+
+                //Holy grail would a linear time complexity or faster. 
+                //That is, an algo where number of operations grows proportionally with increase in input size
+                //merge sort runs super-linear (n log n)
