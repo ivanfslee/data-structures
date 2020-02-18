@@ -77,4 +77,23 @@
             //Question: What is the running time?
                 //O(n^2)
                 //quadratic running time
+//Video 2-2
+//Big Oh Notation
+    //Usually, the worst-case running time of an algorithm
+
+    //English Definition
+    //T(n) = function on n = 1, 2, 3,.....
+
+    //What do we mean when we say a function T(n) is big-oh of f(n)?
+
+    //Question: When is T(n) = O(f(n))?
+        //Answer: If eventually (for all sufficiently large n), T(n) 
+        //is bounded above by a constant multiple of f(n)
+
+    //Formal Definition
+        //T(n) = O(f(n)) 
+        //if and only if there exist constants c, n0 > 0 such that 
+        //T(n) is less than or equal to cf(n) 
+        //for all n greater than or equal to n0
+
 
