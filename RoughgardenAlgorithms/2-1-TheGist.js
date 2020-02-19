@@ -152,6 +152,7 @@
 
 
             /////////////
+            //  ≥   ≤
             //note: ∀ - 'for all' or 'for any'
 
             /////////////
@@ -165,3 +166,62 @@
             // For example, a∈A means Element of: a is in A.
 
             // A numeric example would be: 3∈{1,2,3,4,5}.
+
+            // Ω
+
+            // θ
+            /////////////
+
+//Video 2-4
+//Big Omega and Big Theta
+//If big o is analogous to less than or equal to        ≤     
+//then, omega is analogous to greater than or equal to  ≥
+//and then theta is analogous to equal to               =
+
+    //Big Omega  Ω
+        //Definition:
+            // T(n) = Ω(f(n)) - T of n is equal to big omega of f of n
+            //if and only if ∃ constants c, n sub 0,  such that T(n) ≥ c * f(n)  ∀ n ≥ n sub 0
+
+    //Big Theta  θ
+        //Definition:
+            // T(n) = θ(f(n)) if and only if 
+            // T(n) = O(f(n)) AND T(n) = Ω(f(n))
+
+            //Another way to think about this is that eventually, T(n) is sandwiched between two different
+            //constant multiples of f(n)
+
+            //Equivalent statement:
+                // ∃ constants c sub 1, c sub 2, n sub 0, such that 
+                // c sub 1 * f(n) ≤ T(n) ≤ c sub 2 * f(n)
+                // for all n ≥ n sub 0
+    
+    //Big Theta is a stronger statement because it defines both an upper and lower bound 
+    //Big Omega defines a lower bound for an algorithm
+    //Big O defines an upper bound for an algorithm 
+
+    //Typically, we will define Big O, when Big theta is a stronger statement, because as 
+    //algorithm designers, what we really care about is the upper bound.
+    //We want guarantees on how long our algorithms are going to run
+    //so naturally, we focus on the upper bounds and not so much on the lower bounds
+
+    //Practice Problem 1:
+        //T(n) = .5n^2 + 3n
+            //These 3 are true:
+                //T(n) = Ω(n) - Not a great lower bound, but T(n) does grow at least as fast as a linear function
+                //T(n) = θ(n^2) - Because T(n) has quadratic growth this is correct 
+                //T(n) = O(n^3) - Not a great upper bound (it could be more accurate), but it is legitimate
+                    //Rate of growth of T(n) is at most cubic (and is at most quadratic) 
+            
+
+    //Little-Oh Notation
+        //Big O notation is informally a less than or equal to type relation
+        //Little-Oh is a strictly less than relation 
+            //Intuitively, it means that one function is growing strictly less quickly than another 
+            //So, formally:
+            //Definition:
+                // T(n) = o(f(n)) if and only if for ALL constants c > 0, 
+                // ∃ constant n sub 0, such that:
+                //T(n) ≤ c * f(n)   ∀ n ≥ n sub 0
+
+
