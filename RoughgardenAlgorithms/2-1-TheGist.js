@@ -96,4 +96,72 @@
         //T(n) is less than or equal to cf(n) 
         //for all n greater than or equal to n0
 
+//Video 2-3
+//Basic Examples
+    //Examples to primarily show Big O notation's purpose - 
+    
+    //Example 1 - we prove something IS big o something else
+    //Namely - to suppress constant facotrs and lower order terms 
 
+    //Prove the following claim:
+        //Claim: if T(n) = (a sub k * n^k) + ... + (a sub 1 * n^1) + (a sub 0) then T(n) = O(n^k)
+
+        //The claim is saying Big O does suppress constant factors and lower order terms 
+        //If you have a polynomial, then all you have to worry about is what
+        //is the highest power in that polynomial and that dominates its growth
+        //as 'n' goes to infinity 
+
+    //How to show that one function is the Big O of another?
+        //The whole key is to find this pair of constants, c and n sub 0
+        //Where c quantifies the constant multiple of the function you're trying to prove Big O of
+        //Where n sub 0 quantifies what you mean by 'for all sufficiently large n'
+
+        //Proof
+            //Choose n sub 0 = 1 and c = |a sub k| + |a sub k - 1| + ... + |a sub 1| + |a sub 0|
+                //Needs to be absolute value because we didnt assume the original polynomial 
+                //had non-negative coefficients
+                //We claim that these constants work
+                //We'll be able to prove/assert this definition of Big O Notation 
+
+                //note: ∀ - 'for all' or 'for any'
+
+                //We need to show that ∀ n ≥ 1  (for all n greater than or equal to 1) - it is 1 because we chose n sub 0 = 1       //≤
+                //what we are proving ->   ∀ n ≥ 1, then T(n) ≤ c * n^k
+
+                //We have, for every n ≥ 1,
+                //T(n) ≤ |a sub k|n^k + ... + |a sub 1|n^1 + |a sub 0|
+                //We then replace all n's with n^k and the equation still holds true
+                //T(n) ≤ |a sub k|n^k +... + |a sub 1|n^k + |a sub 0|n^k
+                //All the constants, |a sub whatever| can now be added up because they have the same factor n^k
+                //That leaves us:
+                //T(n) = c * n^k 
+                //Which is what we wanted to prove
+    
+    //Example 2 - we will prove something is NOT big o of something else
+        //Claim: for every k ≥ 1, n^k is NOT O(n^(k - 1)) . (e.g. n^3 is not O(n^2))
+
+        //Proof: by contradiction 
+            //Suppose the opposite is true -> n^k = O(n^(k - 1))
+            //Then ∃ constants c, n sub 0 > 0 such that //there exists constants c and n sub 0
+            //n^k ≤ c * n^(k - 1)     ∀ n ≥ n sub 0     //for all n greater than or equal to n sub 0
+            //But then (cancelling n^k - 1 from both sides)
+            //Leaves us with n ≤ c    ∀ n ≥ n sub 0     
+            //which is clearly false (contradiction) which proves that n^k is NOT O(n^(k - 1))
+            //So different powers of polynomials do not collapse, they really are distinct with respect to Big O notation
+
+
+
+            /////////////
+            //note: ∀ - 'for all' or 'for any'
+
+            /////////////
+            // ∃, it is read as “there exists”. For example: ∃n∈N:n2=n means “there exists a natural number n such that n is equal to its own square”.
+
+            // A related symbol is ∀, meaning “for all”. For example, the expression ∀n∈N∃m∈N:m=n+1 means that for all natural numbers n there exists a natural number m which is exactly one more.
+
+            /////////////
+            //∈ means "Element of".
+
+            // For example, a∈A means Element of: a is in A.
+
+            // A numeric example would be: 3∈{1,2,3,4,5}.
