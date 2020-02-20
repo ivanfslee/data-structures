@@ -224,4 +224,50 @@
                 // ∃ constant n sub 0, such that:
                 //T(n) ≤ c * f(n)   ∀ n ≥ n sub 0
 
+//Video 2-5
+//Additional Examples Review 
 
+//Example 1
+    //Claim: 2^(n + 10) = O(2^n)
+
+    //Proof: need to pick constants c and n sub 0 such that 
+        //(* equation) ->     2^(n + 10) ≤ c * 2^n   ∀ n ≥ n sub 0
+
+    //We can simplify the claim 
+        //2^(n + 10) = (2^10) * (2^n) = 1024 * 2^n
+
+    //So if we choose c = 1024 and n sub 0 = 1, then the * equation will hold true
+
+//Example 2
+    //Claim: 2^10n is NOT O(2^n)
+    //Proof: by contradiction. If 2^10n = O(2^n), then 
+    // ∃ constants c, n sub 0 > 0 such that:
+    //2^10n ≤ c * 2^n   ∀ n ≥ n sub 0
+
+    //But then after we remove 2^n from both sides, we get:
+    //2^9n ≤ c      ∀ n ≥ n sub 0
+    //Which is certainly false 
+
+//Example 3
+    //Claim:
+        //For every pair of (positive) functions, f(n), g(n)
+        // max (f, g) = θ(f(n) + g(n))
+
+    //Proof:
+        //[ max (f, g) = θ(f(n) + g(n))]
+        //For every n, we have: 
+
+        //#1 -> max(f(n), g(n)) ≤ f(n) + g(n) 
+
+        //and 
+
+        //#2 -> max(f(n), g(n)) ≥ 1/2(f(n) + g(n))
+
+        // Thus combine #1 and #2: 
+            //1/2((f(n) + g(n)) ≤ max(f(n), g(n)) ≤ f(n) + g(n) 
+            //for all n ≥ 1
+
+            //where n sub 0 = 1, c sub 1 = 1/2, c sub 2 = 1
+
+        //Therefore:
+            //max(f, g) = O(f(n) + g(n))
