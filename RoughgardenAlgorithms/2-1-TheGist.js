@@ -271,3 +271,13 @@
 
         //Therefore:
             //max(f, g) = O(f(n) + g(n))
+
+//Video 3-1
+//On log n Algorithm for Counting Inversions 
+    //The Divide and Conquer Paradigm
+        //1. Divide problem into smaller subproblems - sometimes the division is in your mind and is more conceptual
+            //other times, it is in the code, you copy the input into new arrays and divide them
+        //2. Conquer subproblems via recursive calls
+        //3. Combine solutions of subproblems 
+            //generally, most of ingenuity happens in this step
+            //Sometimes ingenuity in the first step in dividing, as well 
