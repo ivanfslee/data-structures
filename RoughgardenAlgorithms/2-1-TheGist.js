@@ -311,3 +311,39 @@
             
             //High-level Approach 
                 //Brute-force: O(n^2) - recall n choose 2 inversions is quadratic
+                    //Set up double for-loop, one goes through i, another goes through j bigger than i
+                    //Then we check each pair ij individually with i less than j
+                    //whether that particular pair of array entities A[i] and A[j] is inverted
+                    //if they are inverted, increment count variable 
+                    //then return count 
+                //Problem of Brute-force: 
+                    //there's an n choose 2 or a quadratic number of potential inversions
+                    //So this algorithm will run in quadratic time 
+                //Can we do better?
+                    //Yes
+                //Key Idea #1 
+                    //Divide and conquer 
+                    //Call an inversion (i, j) [with i < j]
+                        //left inversion - if i,j ≤ n/2 - can compute this recursively
+                        //right inversion - if i, j > n/2 - can compute this recursively
+                        //split inversion - if i ≤ n/2 < j - needs a separate subroutine for this
+
+                //High-Level Algorithm 
+                    //Count(array A, length n) 
+                        //if n = 1 return 0 //base case - 1 element array
+                        //else
+                            //x = Count (1st half of A, n/2) //recursive call - left inversion
+                            //y = Count (2nd half of A, n/2) //recursive call - right inversion
+                            //z = CountSplitInv (A, n)   //split inversion - will implement in next video
+                        //return x + y + z
+
+                    //Goal:
+                        //Implement CountSplitInv subroutine in linear O(n) time
+                        //Then Count will run in O(n log n) time, just like merge sort 
+
+                        //O(n log n) because same reason why merge sort ran in O(n log n)
+                        //Recursive calls Each on a problem of half of the array size.
+                        //After the recursive calls, we would be doing linear time subroutine 
+
+                        //The challenge is counting a potentially quadratic number of things 
+                        //using only linear time 
