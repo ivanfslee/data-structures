@@ -347,3 +347,50 @@
 
                         //The challenge is counting a potentially quadratic number of things 
                         //using only linear time 
+
+//Video 3-2
+//On log n Algorithm for Counting Inversions II
+    //Piggybacking on Merge Sort - count a potentially quadratic number of inversions in a linear way
+        //key idea #2 (key idea #1 is in last video)
+            //Have recursive calls both count inversions AND sort, (recursive calls were only counting before) 
+            //[i.e., piggy back on Merge Sort ]
+            //Recall: Merge Sort will sort in O(n log n) time 
+        
+        //Motivation: the merge subroutine in merge sort naturally uncovers split inversions (as we'll see)
+            //that is to say, the merge subroutine almost seems designed just to count the number of split inversions 
+
+    //Revising our High-level Algorithm
+
+        //High-Level Algorithm 
+        //Sort_and_Count(array A, length n) 
+            //if n = 1 return 0 //base case - 1 element array
+            //else
+                //(B, x) = Sort_and_Count (1st half of A, n/2) //recursive call - left inversion, B is sorted version of 1st half
+                //(C, y) = Sort_and_Count (2nd half of A, n/2) //recursive call - right inversion, C is sorted version of 2nd half
+                //(D, z) = MergeAndCountSplitInv (B, C, n)   //split inversion - will implement in next video, D is sorted version of A, subarrays B and C are passed to MergeAndCountSplitInv as input
+            //return x + y + z
+        
+        //Goal:
+            //Implement MergeAndCountSplitInv subroutine in linear O(n) time
+            //Then Sort_and_Count will run in O(n log n) time, just like merge sort 
+    
+        //Pseudocode for Merge subroutine
+            //D = output array (length = n)
+            //B = 1st sorted array (length = n/2)
+            //C = 2nd sorted array (length = n/2)
+
+            //i = 1 (pointer for array A)
+            //j = 1 (pointer for array B)
+
+            //for k = 1 to n
+                //if B(i) < C(j)
+                    //D(k) = B(i) (push element into output array)
+                    //i++         (increment pointer)
+                //else C(j) < B(i)
+                    //D(k) = C(j)
+                    //j++
+            //end
+        
+        //Suppose the input array A has no split inversions. 
+        //What is the relationship between the sorted subarrays B and C?
+            //All elements of B are else than all elements of C
