@@ -393,4 +393,37 @@
         
         //Suppose the input array A has no split inversions. 
         //What is the relationship between the sorted subarrays B and C?
-            //All elements of B are else than all elements of C
+            //All elements of B are less than all elements of C
+        
+        //Example
+            //Consider merging 2 arrays - [1, 3, 5] and [2, 4, 6]
+            //Both arrays are sorted
+            
+            //Output - [1, 2, 3, 4, 5, 6]
+            //You will notice that , when we merge these two arrays,
+                //when the number 2 is copied to the output, we discover the split inversions (3,2) and (5,2)
+                //when the number 4 is copied to the output, we discover the split inversion (5, 4)
+        
+            //General Claim
+                //The split inversions involving an element y of the 2nd array C are 
+                //precisely the numbers left in the 1st array B when y is copied to the output D
+
+            //Proof: 
+                //Let x be an element of the 1st array B
+                //1. if x copied to output D before y, then x < y  
+                    //no inversion involving x and y
+                //2. if y copied to output D before x, then y < x
+                    //x and y are a (split) inversion
+        
+        //MergeAndCountSplitInv Implementation
+            //While merging the two sorted subarrays
+            //keep a running total of the number of split inversions 
+            //when elememnt of 2nd array C gets copied to output D, 
+            //increment total by number of elements remaining in 1st array B
+
+            //Run time of subroutine
+                //Merge is O(n)
+                //Running total is O(n)
+                //So, subroutine is O(n)
+
+            //Sort_and_Count runs in O(n log n) time, just like merge sort
