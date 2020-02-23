@@ -427,3 +427,56 @@
                 //So, subroutine is O(n)
 
             //Sort_and_Count runs in O(n log n) time, just like merge sort
+
+//Video 3-3
+//Strassen's Subcubic Matrix Multiplication Algorithm 
+    //Multiplying matrices are common occurence for computation cycles. A fundamental operation a computer does. 
+    // 3 matrices - x, y, z
+    //Each matrix is an n x n matrix
+    //In this example x * y = z
+    //Where zij = ith row of x * jth column of y 
+
+    //example (n = 2) - 2 by 2 matrix multiplication
+
+        // (a b) * (e f)   =  (ae + bg  af + bh)
+        // (c d) * (g h)      (ce + dg  cf + dh)
+
+        //What is the asymptotic running time of the straightforward iterative algorithm for matrix multiplication?
+            //O(n^3)
+    
+    //Recall Divide and Conquer Paradigm
+        //1. Divide into smaller subproblems
+        //2. Conquer subproblems recursively
+        //3. Combine the solutions of subproblems into one for the original problem
+    
+    //Applying Divide and Conquer to Matrix Multiplication
+        //Idea:
+            //write x = (A  B)  
+            //          (G  H)
+            //y = (E F)
+            //    (G H)
+            //where A through H are all n/2 * n/2 matrices
+
+            // Then:
+                //x * y = (AE + BG    AF + BH)
+                //        (CE + DG    CF + DH)
+            
+            //Step 1: recursively compute the 8 necessary products (AE, BG, CE, DG, AF, BH, CF, DH)
+            //Step 2: do the necessary 4 additions (linear with respect to the number of entries)
+                //O(n^2) time
+
+            //Fact: overall run time is O(n^3) 
+    
+    //So, iterative algorithm and this divide and conquer recursive approach are both cubic time
+    //Like the multiplication example, we used Gauss' trick to reduce the number of recursive calls
+    //Could we do something similar here with the recursive solution to make the algorithm faster?
+        //Yes. In comes Strassen's Algorithm (1969)
+
+    //Strassen's Algorithm 
+        //Step 1: Recursively compute only 7 (instead of 8) cleverly chose products
+
+        //Step 2: Do the necessary (clever) additions + subtractions (still O(n^2) time)
+        //14:24
+    
+    
+
