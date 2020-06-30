@@ -217,8 +217,22 @@ class HashTable {
     //Access - O(1)
     //Search - can be O(1)
     //Speed is determined by how fast the hash function is and how evenly it distributes into the array 
-    //It is possible to have O(1) hash function and programming langues hash tables have a constant time hash function 
+    //It is possible to have O(1) hash function and programming langues hash tables have a constant time hash function
+    
+    //https://stackoverflow.com/questions/2771368/can-hash-tables-really-be-o1
+    /*You have two variables here, m and n, where m is the length of the input and n is the number of items in the hash.
 
+    The O(1) lookup performance claim makes at least two assumptions:
+
+    Your objects can be equality compared in O(1) time.
+    There will be few hash collisions.
+    If your objects are variable size and an equality check requires looking at all bits then performance will become O(m). The hash function however does not have to be O(m) - it can be O(1). Unlike a cryptographic hash, a hash function for use in a dictionary does not have to look at every bit in the input in order to calculate the hash. Implementations are free to look at only a fixed number of bits.
+
+    For sufficiently many items the number of items will become greater than the number of possible hashes and then you will get collisions causing the performance rise above O(1), for example O(n) for a simple linked list traversal (or O(n*m) if both assumptions are false).
+
+    In practice though the O(1) claim while technically false, is approximately true for many real world situations, and in particular those situations where the above assumptions hold.
+
+    */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Algo Expert Hash Table Notes
     //The JavaScript obj is a hash table
